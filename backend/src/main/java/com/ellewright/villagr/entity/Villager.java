@@ -15,6 +15,8 @@ import lombok.AllArgsConstructor;
 public class Villager {
     @Id
     private ObjectId id;
+    private String gender;
     private String name;
     private String job;
+    private String workstation;
 }
