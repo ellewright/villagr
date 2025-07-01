@@ -1,7 +1,9 @@
 package com.ellewright.villagr.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,15 @@ public class VillagerService {
 
     public List<Villager> allVillagers() {
         return villagerRepository.findAll();
+    }
+
+    public Villager fetchVillager(ObjectId id) throws Exception {
+        Optional<Villager> optional = villagerRepository.findById(id);
+
+        if (optional.isPresent()) {
+            return optional.get();
+        }
+
+        throw new Exception("Villager not found!");
     }
 }
