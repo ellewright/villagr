@@ -1,5 +1,6 @@
 package com.ellewright.villagr.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,19 @@ public class VillagerService {
 
     public List<Villager> allVillagers() {
         return villagerRepository.findAll();
+    }
+
+    public List<Villager> allVillagersByGender(String gender) {
+        List<Villager> unfilteredVillagers = villagerRepository.findAll();
+        List<Villager> filteredVillagers = new ArrayList<Villager>();
+
+        for (Villager villager : unfilteredVillagers) {
+            if (villager.getGender().equals(gender)) {
+                filteredVillagers.add(villager);
+            }
+        }
+
+        return filteredVillagers;
     }
 
     public Villager fetchVillager(ObjectId id) throws Exception {

@@ -29,6 +29,15 @@ public class VillagerController {
         }
     }
 
+    @GetMapping("/gender/{gender}")
+    public ResponseEntity<List<Villager>> getVillagersByGender(@PathVariable String gender) {
+        try {
+            return new ResponseEntity<List<Villager>>(villagerService.allVillagersByGender(gender), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Villager> getVillagerById(@PathVariable String id) {
         try {
