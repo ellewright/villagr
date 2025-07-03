@@ -38,6 +38,15 @@ public class VillagerController {
         }
     }
 
+    @GetMapping("/job/{job}")
+    public ResponseEntity<List<Villager>> getVillagersByJob(@PathVariable String job) {
+        try {
+            return new ResponseEntity<List<Villager>>(villagerService.allVillagersByJob(job), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Villager> getVillagerById(@PathVariable String id) {
         try {
