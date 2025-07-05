@@ -9,7 +9,6 @@ const instance = axios.create({ baseURL });
 export async function fetchVillagers() {
     try {
         const response = await instance.get(`${baseURL}/villagers`);
-        console.log(response.data);
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch villagers: ${error}`);
