@@ -35,19 +35,19 @@ public class VillagerController {
     }
 
     @GetMapping("/gender/{gender}")
-    public ResponseEntity<List<Villager>> getVillagersByGender(@PathVariable String gender) {
+    public ResponseEntity<List<VillagerDTO>> getVillagersByGender(@PathVariable String gender) {
         try {
-            return new ResponseEntity<List<Villager>>(villagerService.allVillagersByGender(gender), HttpStatus.OK);
+            return new ResponseEntity<List<VillagerDTO>>(villagerService.allVillagersByGender(gender), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/job/{id}")
-    public ResponseEntity<List<Villager>> getVillagersByJobId(@PathVariable String id) {
+    public ResponseEntity<List<VillagerDTO>> getVillagersByJobId(@PathVariable String id) {
         try {
             ObjectId jobId = new ObjectId(id);
-            return new ResponseEntity<List<Villager>>(villagerService.allVillagersByJob(jobId),
+            return new ResponseEntity<List<VillagerDTO>>(villagerService.allVillagersByJob(jobId),
                     HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -55,10 +55,10 @@ public class VillagerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Villager> getVillagerById(@PathVariable String id) {
+    public ResponseEntity<VillagerDTO> getVillagerById(@PathVariable String id) {
         try {
             ObjectId villagerId = new ObjectId(id);
-            return new ResponseEntity<Villager>(villagerService.fetchVillager(villagerId), HttpStatus.OK);
+            return new ResponseEntity<VillagerDTO>(villagerService.fetchVillager(villagerId), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

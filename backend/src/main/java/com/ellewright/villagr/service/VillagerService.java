@@ -22,19 +22,21 @@ public class VillagerService {
         return villagers.stream().map(VillagerDTO::new).collect(Collectors.toList());
     }
 
-    public List<Villager> allVillagersByGender(String gender) {
-        return villagerRepository.findByGender(gender);
+    public List<VillagerDTO> allVillagersByGender(String gender) {
+        List<Villager> villagers = villagerRepository.findByGender(gender);
+        return villagers.stream().map(VillagerDTO::new).collect(Collectors.toList());
     }
 
-    public List<Villager> allVillagersByJob(ObjectId jobId) {
-        return villagerRepository.findByJobId(jobId);
+    public List<VillagerDTO> allVillagersByJob(ObjectId jobId) {
+        List<Villager> villagers = villagerRepository.findByJobId(jobId);
+        return villagers.stream().map(VillagerDTO::new).collect(Collectors.toList());
     }
 
-    public Villager fetchVillager(ObjectId id) throws Exception {
+    public VillagerDTO fetchVillager(ObjectId id) throws Exception {
         Optional<Villager> optional = villagerRepository.findById(id);
 
         if (optional.isPresent()) {
-            return optional.get();
+            return new VillagerDTO(optional.get());
         }
 
         throw new Exception("Villager not found!");
