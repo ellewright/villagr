@@ -23,15 +23,32 @@ public class VillagerService {
         return villagerRepository.findByGender(gender);
     }
 
-    public List<Villager> allVillagersByJob(String job) {
-        return villagerRepository.findByJob(job);
-    }
+    // public List<Villager> allVillagersByJob(ObjectId jobId) {
+    // return villagerRepository.findByJobId(jobId);
+    // }
 
     public Villager fetchVillager(ObjectId id) throws Exception {
         Optional<Villager> optional = villagerRepository.findById(id);
 
         if (optional.isPresent()) {
             return optional.get();
+        }
+
+        throw new Exception("Villager not found!");
+    }
+
+    public Villager patchVillager(ObjectId villagerId, Villager updatedVillager) throws Exception {
+        Optional<Villager> optionalVillager = villagerRepository.findById(villagerId);
+
+        if (optionalVillager.isPresent()) {
+            Villager villager = optionalVillager.get();
+
+            villager.setJobId(updatedVillager.getJobId());
+            villager.setGender(updatedVillager.getGender());
+            villager.setName(updatedVillager.getName());
+
+            villagerRepository.save(villager);
+            return villager;
         }
 
         throw new Exception("Villager not found!");

@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,20 +40,35 @@ public class VillagerController {
         }
     }
 
-    @GetMapping("/job/{job}")
-    public ResponseEntity<List<Villager>> getVillagersByJob(@PathVariable String job) {
-        try {
-            return new ResponseEntity<List<Villager>>(villagerService.allVillagersByJob(job), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+    // @GetMapping("/job/{job}")
+    // public ResponseEntity<List<Villager>> getVillagersByJobId(@PathVariable
+    // String id) {
+    // try {
+    // ObjectId jobId = new ObjectId(id);
+    // return new
+    // ResponseEntity<List<Villager>>(villagerService.allVillagersByJob(jobId),
+    // HttpStatus.OK);
+    // } catch (Exception e) {
+    // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    // }
+    // }
 
     @GetMapping("/{id}")
     public ResponseEntity<Villager> getVillagerById(@PathVariable String id) {
         try {
             ObjectId villagerId = new ObjectId(id);
             return new ResponseEntity<Villager>(villagerService.fetchVillager(villagerId), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Villager> updateVillager(@PathVariable String id, @RequestBody Villager updatedVillager) {
+        try {
+            ObjectId villagerId = new ObjectId(id);
+            return new ResponseEntity<Villager>(villagerService.patchVillager(villagerId, updatedVillager),
+                    HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

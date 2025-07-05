@@ -12,5 +12,5 @@ import com.ellewright.villagr.entity.Villager;
 public interface VillagerRepository extends MongoRepository<Villager, ObjectId> {
     List<Villager> findByGender(String gender);
 
-    List<Villager> findByJob(String job);
+    // List<Villager> findByJobId(ObjectId jobId);
 }

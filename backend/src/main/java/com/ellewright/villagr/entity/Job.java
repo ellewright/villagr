@@ -4,18 +4,17 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
-@Document(collection = "villagers")
+@Document(collection = "jobs")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Villager {
+public class Job {
     @Id
     private ObjectId id;
-    private ObjectId jobId;
-    private String gender;
-    private String name;
+    private String title;
+    private String workstation;
 }
