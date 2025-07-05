@@ -2,11 +2,13 @@ package com.ellewright.villagr.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ellewright.villagr.dto.JobDTO;
 import com.ellewright.villagr.entity.Job;
 import com.ellewright.villagr.repository.JobRepository;
 
@@ -15,16 +17,17 @@ public class JobService {
     @Autowired
     private JobRepository jobRepository;
 
-    public List<Job> allJobs() {
-        return jobRepository.findAll();
+    public List<JobDTO> allJobs() {
+        List<Job> jobs = jobRepository.findAll();
+        return jobs.stream().map(JobDTO::new).collect(Collectors.toList());
     }
 
-    public Job fetchJob(ObjectId id) throws Exception {
+    public JobDTO fetchJob(ObjectId id) throws Exception {
         Optional<Job> optional = jobRepository.findById(id);
 
         if (optional.isPresent()) {
             Job job = optional.get();
-            return job;
+            return new JobDTO(job);
         }
 
         throw new Exception("Job not found!");

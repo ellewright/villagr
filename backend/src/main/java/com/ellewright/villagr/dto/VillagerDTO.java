@@ -19,7 +19,6 @@ public class VillagerDTO {
     private String name;
     private String gender;
 
-    // Custom constructor to map from Villager entity
     public VillagerDTO(Villager villager) {
         Object idObj = villager.getId();
         if (idObj instanceof ObjectId) {

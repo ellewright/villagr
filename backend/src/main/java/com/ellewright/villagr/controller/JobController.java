@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ellewright.villagr.entity.Job;
+import com.ellewright.villagr.dto.JobDTO;
 import com.ellewright.villagr.service.JobService;
 
 @RestController
@@ -23,19 +23,19 @@ public class JobController {
     private JobService jobService;
 
     @GetMapping
-    public ResponseEntity<List<Job>> getAllJobs() {
+    public ResponseEntity<List<JobDTO>> getAllJobs() {
         try {
-            return new ResponseEntity<List<Job>>(jobService.allJobs(), HttpStatus.OK);
+            return new ResponseEntity<List<JobDTO>>(jobService.allJobs(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Job> getJobById(@PathVariable String id) {
+    public ResponseEntity<JobDTO> getJobById(@PathVariable String id) {
         try {
             ObjectId jobId = new ObjectId(id);
-            return new ResponseEntity<Job>(jobService.fetchJob(jobId), HttpStatus.OK);
+            return new ResponseEntity<JobDTO>(jobService.fetchJob(jobId), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
