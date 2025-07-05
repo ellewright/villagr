@@ -2,11 +2,13 @@ package com.ellewright.villagr.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ellewright.villagr.dto.VillagerDTO;
 import com.ellewright.villagr.entity.Villager;
 import com.ellewright.villagr.repository.VillagerRepository;
 
@@ -15,8 +17,9 @@ public class VillagerService {
     @Autowired
     private VillagerRepository villagerRepository;
 
-    public List<Villager> allVillagers() {
-        return villagerRepository.findAll();
+    public List<VillagerDTO> allVillagers() {
+        List<Villager> villagers = villagerRepository.findAll();
+        return villagers.stream().map(VillagerDTO::new).collect(Collectors.toList());
     }
 
     public List<Villager> allVillagersByGender(String gender) {

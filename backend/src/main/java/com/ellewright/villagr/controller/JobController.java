@@ -6,6 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import com.ellewright.villagr.service.JobService;
 
 @RestController
 @RequestMapping("api/jobs")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class JobController {
     @Autowired
     private JobService jobService;
