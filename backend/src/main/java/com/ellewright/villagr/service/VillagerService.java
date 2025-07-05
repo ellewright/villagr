@@ -23,9 +23,9 @@ public class VillagerService {
         return villagerRepository.findByGender(gender);
     }
 
-    // public List<Villager> allVillagersByJob(ObjectId jobId) {
-    // return villagerRepository.findByJobId(jobId);
-    // }
+    public List<Villager> allVillagersByJob(ObjectId jobId) {
+        return villagerRepository.findByJobId(jobId);
+    }
 
     public Villager fetchVillager(ObjectId id) throws Exception {
         Optional<Villager> optional = villagerRepository.findById(id);

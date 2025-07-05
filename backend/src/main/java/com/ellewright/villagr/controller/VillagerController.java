@@ -40,18 +40,16 @@ public class VillagerController {
         }
     }
 
-    // @GetMapping("/job/{job}")
-    // public ResponseEntity<List<Villager>> getVillagersByJobId(@PathVariable
-    // String id) {
-    // try {
-    // ObjectId jobId = new ObjectId(id);
-    // return new
-    // ResponseEntity<List<Villager>>(villagerService.allVillagersByJob(jobId),
-    // HttpStatus.OK);
-    // } catch (Exception e) {
-    // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    // }
-    // }
+    @GetMapping("/job/{id}")
+    public ResponseEntity<List<Villager>> getVillagersByJobId(@PathVariable String id) {
+        try {
+            ObjectId jobId = new ObjectId(id);
+            return new ResponseEntity<List<Villager>>(villagerService.allVillagersByJob(jobId),
+                    HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Villager> getVillagerById(@PathVariable String id) {
