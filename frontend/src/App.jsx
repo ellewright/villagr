@@ -43,23 +43,30 @@ function App() {
               key={villager.id}
               className={styles.villager}
             >
-              <h3>
-                {villager.name}
-              </h3>
-              <img src={`/${villager.name}.png`} alt="Villager profile picture." />
-              <p>
-                {villager.gender}
-              </p>
-              {jobs.map((job) => {
-                if (job.id === villager.jobId) {
-                  return (
-                    <React.Fragment key={job.id}>
-                      <p>{job.title}</p>
-                      <p>{job.workstation}</p>
-                    </React.Fragment>
-                  )
+              <div className={styles.villagerTitle}>
+                <h3 className={styles.villagerName}>
+                  {villager.name}
+                </h3>
+                {
+                  jobs.map((job) => {
+                    if (job.id === villager.jobId) {
+                      return (
+                        <p
+                          className={styles.villagerJob}
+                          key={job.id}
+                        >
+                          {job.title}
+                        </p>
+                      )
+                    }
+                  })
                 }
-              })}
+              </div>
+              <img
+                src={`/${villager.name}.png`}
+                className={styles.profilePicture}
+                alt="Villager profile picture."
+              />
             </div>
           ))}
         </div>
