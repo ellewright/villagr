@@ -38,10 +38,10 @@ public class VillagerService {
     }
 
     public Villager patchVillager(ObjectId villagerId, Villager updatedVillager) throws Exception {
-        Optional<Villager> optionalVillager = villagerRepository.findById(villagerId);
+        Optional<Villager> optional = villagerRepository.findById(villagerId);
 
-        if (optionalVillager.isPresent()) {
-            Villager villager = optionalVillager.get();
+        if (optional.isPresent()) {
+            Villager villager = optional.get();
 
             villager.setJobId(updatedVillager.getJobId());
             villager.setGender(updatedVillager.getGender());
