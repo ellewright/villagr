@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import styles from "./VillagerCardWide.module.css"
 import { fetchJobs } from "../../../api/job";
+import { Link } from "react-router-dom";
 
 export default function VillagerCardWide({ villager }) {
     const [jobs, setJobs] = useState([]);
@@ -20,9 +21,14 @@ export default function VillagerCardWide({ villager }) {
             className={styles.villager}
         >
             <div className={styles.villagerTitle}>
-                <h3 className={styles.villagerName}>
-                    {villager.name}
-                </h3>
+                <Link
+                    className={styles.link}
+                    to={`/${villager.id}`}
+                >
+                    <h3 className={styles.villagerName}>
+                        {villager.name}
+                    </h3>
+                </Link>
                 {
                     jobs.map((job) => {
                         if (job.id === villager.jobId) {

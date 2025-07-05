@@ -13,4 +13,6 @@ public interface VillagerRepository extends MongoRepository<Villager, ObjectId> 
     List<Villager> findByGender(String gender);
 
     List<Villager> findByJobId(ObjectId jobId);
+
+    Villager findByName(String name);
 }

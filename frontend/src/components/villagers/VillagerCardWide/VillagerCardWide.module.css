@@ -20,6 +20,11 @@
     padding-top: 1rem;
 }
 
+.link {
+    color: #999;
+    text-decoration: none;
+}
+
 .villagerName {
     margin: 0;
 }
