@@ -46,6 +46,7 @@ function App() {
               <h3>
                 {villager.name}
               </h3>
+              <img src={`/${villager.name}.png`} alt="Villager profile picture." />
               <p>
                 {villager.gender}
               </p>
