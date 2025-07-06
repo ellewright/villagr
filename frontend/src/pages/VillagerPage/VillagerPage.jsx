@@ -29,7 +29,9 @@ export default function VillagerPage() {
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.name}>
-                    <h1>{villager.name}</h1>
+                    <h1>
+                        {villager.name}
+                    </h1>
                 </div>
             </div>
             <div className={styles.body}>
@@ -51,8 +53,10 @@ export default function VillagerPage() {
                         })
                     }
                 </div>
+                <div className={styles.genderContainer}>
+                    <p>{villager.gender}</p>
+                </div>
             </div>
-            <div className={styles.footer}></div>
         </div>
     )
 }

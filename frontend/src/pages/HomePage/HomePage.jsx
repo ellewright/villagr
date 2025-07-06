@@ -38,7 +38,6 @@ export default function HomePage() {
                     ))}
                 </div>
             </div>
-            <div className={styles.footer}></div>
         </div>
     )
 }
