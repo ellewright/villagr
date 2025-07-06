@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "./HomePage.module.css"
 import { fetchVillagers } from "../../api/villager";
-import { fetchJobs } from "../../api/job";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
-    const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
         async function loadVillagerData() {

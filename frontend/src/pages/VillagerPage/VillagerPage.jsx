@@ -43,6 +43,7 @@ export default function VillagerPage() {
                     />
                 </div>
                 <div className={styles.jobContainer}>
+                    {/* This could probably be implemented better */}
                     {
                         jobs.map((job) => {
                             if (job.id == villager.jobId) {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_URL;
+const baseURL = import.meta.env.VITE_API_URL + "/villagers";
 
 if (!baseURL) throw new Error("No API url define in environment variables.");
 
@@ -8,7 +8,7 @@ const instance = axios.create({ baseURL });
 
 export async function fetchVillagers() {
     try {
-        const response = await instance.get(`${baseURL}/villagers`);
+        const response = await instance.get(baseURL);
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch villagers: ${error}`);
@@ -18,7 +18,7 @@ export async function fetchVillagers() {
 
 export async function fetchVillagerById(villagerId) {
     try {
-        const response = await instance.get(`${baseURL}/villagers/${villagerId}`);
+        const response = await instance.get(`${baseURL}/${villagerId}`);
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch villager with the ID ${villagerId}: ${error}`);
@@ -28,7 +28,7 @@ export async function fetchVillagerById(villagerId) {
 
 export async function fetchVillagersByGender(gender) {
     try {
-        const response = await instance.get(`${baseURL}/villagers/gender/${gender}`);
+        const response = await instance.get(`${baseURL}/gender/${gender}`);
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch villagers with the gender ${gender}: ${error}`);

@@ -3,6 +3,7 @@ package com.ellewright.villagr.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,11 @@ public class TradeService {
 
     public List<TradeDTO> allTrades() {
         List<Trade> trades = tradeRepository.findAll();
+        return trades.stream().map(TradeDTO::new).collect(Collectors.toList());
+    }
+
+    public List<TradeDTO> fetchTradesByVillagerId(ObjectId villagerId) {
+        List<Trade> trades = tradeRepository.findByVillagerId(villagerId);
         return trades.stream().map(TradeDTO::new).collect(Collectors.toList());
     }
 }
