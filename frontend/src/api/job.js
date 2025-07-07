@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_URL;
+const baseURL = import.meta.env.VITE_API_URL + "/jobs";
 
 if (!baseURL) throw new Error("No API url define in environment variables.");
 
@@ -8,7 +8,7 @@ const instance = axios.create({ baseURL });
 
 export async function fetchJobs() {
     try {
-        const response = await instance.get(`${baseURL}/jobs`);
+        const response = await instance.get(baseURL);
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch jobs: ${error}`);
@@ -18,7 +18,7 @@ export async function fetchJobs() {
 
 export async function fetchJobById(jobId) {
     try {
-        const response = await instance.get(`${baseURL}/jobs/${jobId}`);
+        const response = await instance.get(`${baseURL}/${jobId}`);
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch job with ID ${jobId}: ${error}`);

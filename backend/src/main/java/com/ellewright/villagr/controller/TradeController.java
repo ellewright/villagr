@@ -31,7 +31,7 @@ public class TradeController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/villager/{id}")
     public ResponseEntity<List<TradeDTO>> getTradesByVillagerId(@PathVariable String id) {
         try {
             ObjectId villagerId = new ObjectId(id);

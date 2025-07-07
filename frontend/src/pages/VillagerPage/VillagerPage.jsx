@@ -1,29 +1,42 @@
 import { useParams } from "react-router-dom";
 import styles from "./VillagerPage.module.css";
 import { useEffect, useState } from "react";
-import { fetchJobs } from "../../api/job";
+import { fetchJobById } from "../../api/job";
 import { fetchVillagerById } from "../../api/villager";
+import { fetchTradesByVillagerId } from "../../api/trade";
 
 
 export default function VillagerPage() {
     const { villagerId } = useParams();
     const [villager, setVillager] = useState({});
-    const [jobs, setJobs] = useState([]);
+    const [trades, setTrades] = useState([]);
+    const [job, setJob] = useState();
 
     useEffect(() => {
-        async function loadJobs() {
-            const data = await fetchJobs();
-            setJobs(data);
-        }
-
         async function loadVillager(villagerId) {
             const data = await fetchVillagerById(villagerId);
             setVillager(data);
         }
 
-        loadJobs();
+        async function loadTrades(villagerId) {
+            const data = await fetchTradesByVillagerId(villagerId);
+            setTrades(data);
+        }
+
         loadVillager(villagerId);
-    }, []);
+        loadTrades(villagerId);
+    }, [])
+
+    useEffect(() => {
+        async function loadJob(id) {
+            const data = await fetchJobById(id);
+            setJob(data);
+        }
+
+        if (villager && villager.jobId) {
+            loadJob(villager?.jobId);
+        }
+    }, [villager])
 
     return (
         <div className={styles.container}>
@@ -43,19 +56,26 @@ export default function VillagerPage() {
                     />
                 </div>
                 <div className={styles.jobContainer}>
-                    {/* This could probably be implemented better */}
-                    {
-                        jobs.map((job) => {
-                            if (job.id == villager.jobId) {
-                                return (
-                                    <p key={job.id}>{job.title}</p>
-                                )
-                            }
-                        })
-                    }
+                    <p>{job?.title}</p>
                 </div>
                 <div className={styles.genderContainer}>
                     <p>{villager.gender}</p>
+                </div>
+                <div className={styles.tradesContainer}>
+                    <h2>Trades</h2>
+                    <div className={styles.tradesList}>
+                        {
+                            trades?.map((trade) => (
+                                <div
+                                    key={trade.id}
+                                    className={styles.trade}
+                                >
+                                    <p>Offer: {trade.bidQuantity} {trade.bid}</p>
+                                    <p>Price: {trade.askQuantity} {trade.ask}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>

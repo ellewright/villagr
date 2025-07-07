@@ -47,9 +47,19 @@
     align-items: center;
 }
 
-.footer {
+.tradesContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+}
+
+.tradesList {
+    width: 42.5rem;
+    padding-left: 5rem;
+}
+
+.trade {
+    width: 50rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }

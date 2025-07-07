@@ -15,3 +15,13 @@ export async function FetchTrades() {
         throw error;
     }
 }
+
+export async function fetchTradesByVillagerId(villagerId) {
+    try {
+        const response = await instance.get(`${baseURL}/villager/${villagerId}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Failed to fetch trades for Villager with ID ${villagerId}: ${error}`);
+        throw error;
+    }
+}
