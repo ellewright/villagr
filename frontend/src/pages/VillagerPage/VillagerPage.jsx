@@ -70,7 +70,7 @@ export default function VillagerPage() {
                                     key={trade.id}
                                     className={styles.trade}
                                 >
-                                    <p>Offer: {trade.bidQuantity} {trade.bid}</p>
+                                    <p>{trade.bidQuantity} {trade.bid}</p>
                                     <p>Price: {trade.askQuantity} {trade.ask}</p>
                                 </div>
                             ))
