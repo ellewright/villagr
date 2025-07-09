@@ -64,6 +64,14 @@ export default function VillagerPage() {
                 <div className={styles.tradesContainer}>
                     <h2>Trades</h2>
                     <div className={styles.tradesList}>
+                        <div className={styles.trade}>
+                            <p className={styles.cell}>
+                                Bid
+                            </p>
+                            <p className={styles.cell}>
+                                Ask
+                            </p>
+                        </div>
                         {
                             trades?.map((trade) => (
                                 <div
