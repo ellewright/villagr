@@ -53,13 +53,17 @@
     align-items: center;
 }
 
-.tradesList {
-    width: 40rem;
-    padding-left: 5rem;
-}
+.tradesList {}
 
 .trade {
+    background-color: white;
     width: 50rem;
     display: grid;
     grid-template-columns: 50% 50%;
+    gap: 1px;
+}
+
+.cell {
+    background-color: #111;
+    border: 1px solid white;
 }
