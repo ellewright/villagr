@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchJobById } from "../../api/job";
 import { fetchVillagerById } from "../../api/villager";
 import { fetchTradesByVillagerId } from "../../api/trade";
+import { getSrc } from "../../util/util";
 
 
 export default function VillagerPage() {
@@ -79,10 +80,14 @@ export default function VillagerPage() {
                                     className={styles.trade}
                                 >
                                     <p className={styles.cell}>
+                                        <img src={getSrc(trade.bid)} alt="Bid icon." />
                                         {trade.bidQuantity} {trade.bid}
+
                                     </p>
                                     <p className={styles.cell}>
-                                        Price: {trade.askQuantity} {trade.ask}
+                                        <img src={getSrc(trade.ask)} alt="Bid icon." />
+                                        {trade.askQuantity} {trade.ask}
+
                                     </p>
                                 </div>
                             ))
