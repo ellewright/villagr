@@ -50,27 +50,29 @@ export default function VillagerPage() {
             </div>
             <div className={styles.body}>
                 <div>
-                    <img
-                        className={styles.profilePicture}
-                        src={`/${villager.name}.png`}
-                        alt={`${villager.name}'s profile picture.`}
-                    />
-                </div>
-                <div className={styles.jobContainer}>
-                    <p>{job?.title}</p>
-                </div>
-                <div className={styles.genderContainer}>
-                    <p>{villager.gender}</p>
+                    <div>
+                        <img
+                            className={styles.profilePicture}
+                            src={`/${villager.name}.png`}
+                            alt={`${villager.name}'s profile picture.`}
+                        />
+                    </div>
+                    <div className={styles.jobContainer}>
+                        <p>{job?.title}</p>
+                    </div>
+                    <div className={styles.genderContainer}>
+                        <p>{villager.gender}</p>
+                    </div>
                 </div>
                 <div className={styles.tradesContainer}>
                     <h2>Trades</h2>
                     <div className={styles.tradesList}>
                         <div className={styles.trade}>
                             <p className={styles.cell}>
-                                Bid
+                                For sale
                             </p>
                             <p className={styles.cell}>
-                                Ask
+                                Price
                             </p>
                         </div>
                         {
@@ -80,14 +82,12 @@ export default function VillagerPage() {
                                     className={styles.trade}
                                 >
                                     <p className={styles.cell}>
-                                        <img src={getSrc(trade.bid)} alt="Bid icon." />
-                                        {trade.bidQuantity} {trade.bid}
-
-                                    </p>
-                                    <p className={styles.cell}>
                                         <img src={getSrc(trade.ask)} alt="Bid icon." />
                                         {trade.askQuantity} {trade.ask}
-
+                                    </p>
+                                    <p className={styles.cell}>
+                                        <img src={getSrc(trade.bid)} alt="Bid icon." />
+                                        {trade.bidQuantity} {trade.bid}
                                     </p>
                                 </div>
                             ))
