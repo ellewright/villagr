@@ -16,12 +16,12 @@ export async function fetchVillagers() {
     }
 }
 
-export async function fetchVillagerById(villagerId) {
+export async function fetchVillagerByName(name) {
     try {
-        const response = await instance.get(`${baseURL}/${villagerId}`);
+        const response = await instance.get(`${baseURL}/${name}`);
         return response.data;
     } catch (error) {
-        console.error(`Failed to fetch villager with the ID ${villagerId}: ${error}`);
+        console.error(`Failed to fetch villager with the name ${name}: ${error}`);
         throw error;
     }
 }

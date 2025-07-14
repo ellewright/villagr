@@ -23,7 +23,7 @@ export default function VillagerCardWide({ villager }) {
             <div className={styles.villagerTitle}>
                 <Link
                     className={styles.link}
-                    to={`/${villager.id}`}
+                    to={`/${villager.name}`}
                 >
                     <h3 className={styles.villagerName}>
                         {villager.name}

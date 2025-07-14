@@ -2,30 +2,23 @@ import { useParams } from "react-router-dom";
 import styles from "./VillagerPage.module.css";
 import { useEffect, useState } from "react";
 import { fetchJobById } from "../../api/job";
-import { fetchVillagerById } from "../../api/villager";
+import { fetchVillagerByName } from "../../api/villager";
 import { fetchTradesByVillagerId } from "../../api/trade";
 import { getSrc } from "../../util/util";
 
-
 export default function VillagerPage() {
-    const { villagerId } = useParams();
+    const { name } = useParams();
     const [villager, setVillager] = useState({});
     const [trades, setTrades] = useState([]);
     const [job, setJob] = useState();
 
     useEffect(() => {
-        async function loadVillager(villagerId) {
-            const data = await fetchVillagerById(villagerId);
+        async function loadVillager(name) {
+            const data = await fetchVillagerByName(name);
             setVillager(data);
         }
 
-        async function loadTrades(villagerId) {
-            const data = await fetchTradesByVillagerId(villagerId);
-            setTrades(data);
-        }
-
-        loadVillager(villagerId);
-        loadTrades(villagerId);
+        loadVillager(name);
     }, [])
 
     useEffect(() => {
@@ -34,8 +27,14 @@ export default function VillagerPage() {
             setJob(data);
         }
 
+        async function loadTrades(villagerId) {
+            const data = await fetchTradesByVillagerId(villagerId);
+            setTrades(data);
+        }
+
         if (villager && villager.jobId) {
             loadJob(villager?.jobId);
+            loadTrades(villager?.id);
         }
     }, [villager])
 

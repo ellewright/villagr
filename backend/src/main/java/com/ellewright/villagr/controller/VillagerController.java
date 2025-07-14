@@ -54,11 +54,10 @@ public class VillagerController {
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<VillagerDTO> getVillagerById(@PathVariable String id) {
+    @GetMapping("/{name}")
+    public ResponseEntity<VillagerDTO> getVillagerByName(@PathVariable String name) {
         try {
-            ObjectId villagerId = new ObjectId(id);
-            return new ResponseEntity<VillagerDTO>(villagerService.fetchVillager(villagerId), HttpStatus.OK);
+            return new ResponseEntity<VillagerDTO>(villagerService.fetchVillagerByName(name), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

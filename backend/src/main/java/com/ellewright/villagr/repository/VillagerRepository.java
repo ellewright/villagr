@@ -1,6 +1,7 @@
 package com.ellewright.villagr.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -14,5 +15,5 @@ public interface VillagerRepository extends MongoRepository<Villager, ObjectId> 
 
     List<Villager> findByJobId(ObjectId jobId);
 
-    Villager findByName(String name);
+    Optional<Villager> findByName(String name);
 }

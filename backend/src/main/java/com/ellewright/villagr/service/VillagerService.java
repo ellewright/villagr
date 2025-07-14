@@ -42,6 +42,16 @@ public class VillagerService {
         throw new Exception("Villager not found!");
     }
 
+    public VillagerDTO fetchVillagerByName(String name) throws Exception {
+        Optional<Villager> optional = villagerRepository.findByName(name);
+
+        if (optional.isPresent()) {
+            return new VillagerDTO(optional.get());
+        }
+
+        throw new Exception("Villager not found!");
+    }
+
     public Villager patchVillager(ObjectId villagerId, Villager updatedVillager) throws Exception {
         Optional<Villager> optional = villagerRepository.findById(villagerId);
 
