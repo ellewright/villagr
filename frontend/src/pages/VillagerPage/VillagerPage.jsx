@@ -19,7 +19,7 @@ export default function VillagerPage() {
         }
 
         loadVillager(name);
-    }, [])
+    }, []);
 
     useEffect(() => {
         async function loadJob(id) {
@@ -36,7 +36,7 @@ export default function VillagerPage() {
             loadJob(villager?.jobId);
             loadTrades(villager?.id);
         }
-    }, [villager])
+    }, [villager]);
 
     return (
         <div className={styles.container}>
@@ -95,5 +95,5 @@ export default function VillagerPage() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

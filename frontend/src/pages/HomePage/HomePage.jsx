@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./HomePage.module.css"
+import styles from "./HomePage.module.css";
 import { fetchVillagers } from "../../api/villager";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
 
@@ -13,7 +13,7 @@ export default function HomePage() {
         }
 
         loadVillagerData();
-    }, [])
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -37,5 +37,5 @@ export default function HomePage() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

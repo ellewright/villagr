@@ -12,7 +12,7 @@ export default function VillagerCardWide({ villager }) {
             setJobs(data);
         }
 
-        loadJobData()
+        loadJobData();
     }, [])
 
     return (
@@ -50,5 +50,5 @@ export default function VillagerCardWide({ villager }) {
                 alt="Villager profile picture."
             />
         </div>
-    )
+    );
 }
