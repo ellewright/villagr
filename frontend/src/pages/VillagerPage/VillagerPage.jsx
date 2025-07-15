@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchJobById } from "../../api/job";
 import { fetchVillagerByName } from "../../api/villager";
 import { fetchTradesByVillagerId } from "../../api/trade";
-import { getSrc } from "../../util/util";
+import TradeList from "../../components/trades/TradeList/TradeList";
 
 export default function VillagerPage() {
     const { name } = useParams();
@@ -63,36 +63,7 @@ export default function VillagerPage() {
                         <p>{villager.gender}</p>
                     </div>
                 </div>
-                <div className={styles.tradesContainer}>
-                    <h2>Trades</h2>
-                    <div className={styles.tradesList}>
-                        <div className={styles.trade}>
-                            <p className={styles.cell}>
-                                For sale
-                            </p>
-                            <p className={styles.cell}>
-                                Price
-                            </p>
-                        </div>
-                        {
-                            trades?.map((trade) => (
-                                <div
-                                    key={trade.id}
-                                    className={styles.trade}
-                                >
-                                    <p className={styles.cell}>
-                                        <img src={getSrc(trade.ask)} alt="Bid icon." />
-                                        {trade.askQuantity} {trade.ask}
-                                    </p>
-                                    <p className={styles.cell}>
-                                        <img src={getSrc(trade.bid)} alt="Bid icon." />
-                                        {trade.bidQuantity} {trade.bid}
-                                    </p>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
+                <TradeList trades={trades} />
             </div>
         </div>
     );
