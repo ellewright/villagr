@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
 import { fetchVillagers } from "../../api/villager";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
+import PageContainer from "../../components/pages/PageContainer/PageContainer";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
@@ -16,7 +17,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div className={styles.container}>
+        <PageContainer>
             <div className={styles.header}>
                 <div className={styles.title}>
                     <h1>
@@ -36,6 +37,6 @@ export default function HomePage() {
                     ))}
                 </div>
             </div>
-        </div>
+        </PageContainer>
     );
 }
