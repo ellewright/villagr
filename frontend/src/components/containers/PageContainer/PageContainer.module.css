@@ -1,6 +1,9 @@
 .container {
+    position: absolute;
+    top: 0;
     width: 50rem;
-    height: 100%;
+    height: fit-content;
+    min-height: calc(100vh - 2rem);
     display: flex;
     flex-direction: column;
     align-items: center;

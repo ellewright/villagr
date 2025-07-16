@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
 import { fetchVillagers } from "../../api/villager";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
-import PageContainer from "../../components/pages/PageContainer/PageContainer";
+import PageContainer from "../../components/containers/PageContainer/PageContainer";
+import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
@@ -18,7 +19,7 @@ export default function HomePage() {
 
     return (
         <PageContainer>
-            <div className={styles.header}>
+            <HeaderContainer>
                 <div className={styles.title}>
                     <h1>
                         Villagr
@@ -29,7 +30,7 @@ export default function HomePage() {
                         The social media application for Minecraft villagers.
                     </h2>
                 </div>
-            </div>
+            </HeaderContainer>
             <div className={styles.body}>
                 <div className={styles.villagerList}>
                     {villagers.map((villager) => (

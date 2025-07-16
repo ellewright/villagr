@@ -5,7 +5,8 @@ import { fetchJobById } from "../../api/job";
 import { fetchVillagerByName } from "../../api/villager";
 import { fetchTradesByVillagerId } from "../../api/trade";
 import TradeList from "../../components/trades/TradeList/TradeList";
-import PageContainer from "../../components/pages/PageContainer/PageContainer";
+import PageContainer from "../../components/containers/PageContainer/PageContainer";
+import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
 
 export default function VillagerPage() {
     const { name } = useParams();
@@ -41,13 +42,13 @@ export default function VillagerPage() {
 
     return (
         <PageContainer>
-            <div className={styles.header}>
+            <HeaderContainer>
                 <div className={styles.name}>
                     <h1>
                         {villager.name}
                     </h1>
                 </div>
-            </div>
+            </HeaderContainer>
             <div className={styles.body}>
                 <div>
                     <div>
