@@ -7,6 +7,7 @@ import { fetchTradesByVillagerId } from "../../api/trade";
 import TradeList from "../../components/trades/TradeList/TradeList";
 import PageContainer from "../../components/containers/PageContainer/PageContainer";
 import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
+import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
 
 export default function VillagerPage() {
     const { name } = useParams();
@@ -49,7 +50,7 @@ export default function VillagerPage() {
                     </h1>
                 </div>
             </HeaderContainer>
-            <div className={styles.body}>
+            <BodyContainer>
                 <div>
                     <div>
                         <img
@@ -66,7 +67,7 @@ export default function VillagerPage() {
                     </div>
                 </div>
                 <TradeList trades={trades} />
-            </div>
+            </BodyContainer>
         </PageContainer>
     );
 }

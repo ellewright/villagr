@@ -4,6 +4,7 @@ import { fetchVillagers } from "../../api/villager";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
 import PageContainer from "../../components/containers/PageContainer/PageContainer";
 import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
+import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
@@ -31,13 +32,13 @@ export default function HomePage() {
                     </h2>
                 </div>
             </HeaderContainer>
-            <div className={styles.body}>
+            <BodyContainer>
                 <div className={styles.villagerList}>
                     {villagers.map((villager) => (
                         <VillagerCardWide key={villager.id} villager={villager} />
                     ))}
                 </div>
-            </div>
+            </BodyContainer>
         </PageContainer>
     );
 }
