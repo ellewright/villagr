@@ -9,30 +9,6 @@
     align-items: center;
 }
 
-.form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dropdown {
-    background-color: #111;
-    color: #999;
-    border: 1px solid #999;
-    outline: 0px;
-    width: 40%;
-    padding: 0.25rem 0.25rem;
-}
-
-.submit {
-    background-color: #111;
-    color: #999;
-    border: 1px solid #999;
-    border-left: none;
-    padding: calc(0.25rem + 1px) calc(0.25rem + 1px);
-}
-
 .villagerList {
     width: 45rem;
     display: flex;

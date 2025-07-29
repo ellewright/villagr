@@ -5,10 +5,10 @@ import VillagerCardWide from "../../components/villagers/VillagerCardWide/Villag
 import PageContainer from "../../components/containers/PageContainer/PageContainer";
 import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
 import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
+import GenderFilter from "../../components/filters/GenderFilter/GenderFilter";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
-    const [genderFilter, setGenderFilter] = useState("");
 
     useEffect(() => {
         async function loadVillagerData() {
@@ -18,18 +18,6 @@ export default function HomePage() {
 
         loadVillagerData();
     }, []);
-
-    async function handleSubmit(e) {
-        e.preventDefault();
-
-        if (genderFilter !== "") {
-            const data = await fetchVillagersByGender(genderFilter);
-            setVillagers(data);
-        } else {
-            const data = await fetchVillagers();
-            setVillagers(data);
-        }
-    }
 
     return (
         <PageContainer>
@@ -45,25 +33,7 @@ export default function HomePage() {
                     </h2>
                 </div>
                 <div className={styles.filter}>
-                    <form
-                        className={styles.form}
-                        onSubmit={handleSubmit}
-                    >
-                        <select
-                            className={styles.dropdown}
-                            onChange={(e) => setGenderFilter(e.target.value)}
-                        >
-                            <option value="">All</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                        <button
-                            className={styles.submit}
-                            type="submit"
-                        >
-                            Filter
-                        </button>
-                    </form>
+                    <GenderFilter setVillagers={setVillagers} />
                 </div>
             </HeaderContainer>
             <BodyContainer>
