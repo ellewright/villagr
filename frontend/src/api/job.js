@@ -25,3 +25,13 @@ export async function fetchJobById(jobId) {
         throw error;
     }
 }
+
+export async function fetchJobByTitle(title) {
+    try {
+        const response = await instance.get(`${baseURL}/title/${title}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Failed to fetch job with title ${title}: ${error}`);
+        throw error;
+    }
+}

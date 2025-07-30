@@ -32,4 +32,15 @@ public class JobService {
 
         throw new Exception("Job not found!");
     }
+
+    public JobDTO fetchJobByTitle(String title) throws Exception {
+        Optional<Job> optional = jobRepository.findByTitle(title);
+
+        if (optional.isPresent()) {
+            Job job = optional.get();
+            return new JobDTO(job);
+        }
+
+        throw new Exception("Job not found!");
+    }
 }

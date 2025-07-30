@@ -6,6 +6,7 @@ import PageContainer from "../../components/containers/PageContainer/PageContain
 import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
 import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
 import GenderFilter from "../../components/filters/GenderFilter/GenderFilter";
+import JobFilter from "../../components/filters/JobFilter/JobFilter";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
@@ -34,6 +35,7 @@ export default function HomePage() {
                 </div>
                 <div className={styles.filter}>
                     <GenderFilter setVillagers={setVillagers} />
+                    <JobFilter setVillagers={setVillagers} />
                 </div>
             </HeaderContainer>
             <BodyContainer>

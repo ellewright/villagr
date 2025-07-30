@@ -40,4 +40,13 @@ public class JobController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/title/{title}")
+    public ResponseEntity<JobDTO> getJobByTitle(@PathVariable String title) {
+        try {
+            return new ResponseEntity<JobDTO>(jobService.fetchJobByTitle(title), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

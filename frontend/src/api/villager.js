@@ -35,3 +35,13 @@ export async function fetchVillagersByGender(gender) {
         throw error;
     }
 }
+
+export async function fetchVillagersByJobId(jobId) {
+    try {
+        const response = await instance.get(`${baseURL}/job/${jobId}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Failed to fetch villagers with the Job ID: ${jobId}: ${error}`);
+        throw error;
+    }
+}
