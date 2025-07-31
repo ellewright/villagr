@@ -1,0 +1,23 @@
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    background-color: #111;
+    color: #999;
+    border: 1px solid #999;
+    outline: 0px;
+    width: 40%;
+    padding: calc(0.25rem + 1px) 0.25rem;
+}
+
+.submit {
+    background-color: #111;
+    color: #999;
+    border: 1px solid #999;
+    border-left: none;
+    padding: calc(0.25rem + 1px) calc(0.25rem + 1px);
+}
