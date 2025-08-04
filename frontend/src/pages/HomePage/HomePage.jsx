@@ -21,6 +21,8 @@ export default function HomePage() {
         loadVillagerData();
     }, []);
 
+    throw new Error("Error message.")
+
     return (
         <PageContainer>
             <HeaderContainer>
