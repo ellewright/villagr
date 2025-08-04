@@ -21,12 +21,12 @@ export default function TradeList({ trades }) {
                             className={styles.trade}
                         >
                             <p className={styles.cell}>
-                                <img src={getSrc(trade.ask)} alt="Bid icon." />
-                                {trade.askQuantity} {trade.ask}
-                            </p>
-                            <p className={styles.cell}>
                                 <img src={getSrc(trade.bid)} alt="Bid icon." />
                                 {trade.bidQuantity} {trade.bid}
+                            </p>
+                            <p className={styles.cell}>
+                                <img src={getSrc(trade.ask)} alt="Ask icon." />
+                                {trade.askQuantity} {trade.ask}
                             </p>
                         </div>
                     ))
