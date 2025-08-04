@@ -56,7 +56,7 @@ npm i
 7. In the root of the frontend directory, create a `.env` file, and add:
 
 ```
-VITE_API_URL="http://localhost:8080"
+VITE_API_URL="http://localhost:8080/api"
 VITE_MODE="development"
 ```
 
