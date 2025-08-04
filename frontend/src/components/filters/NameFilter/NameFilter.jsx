@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchVillagersByNameStartingWith } from "../../../api/villager";
+import { fetchVillagers, fetchVillagersByNameStartingWith } from "../../../api/villager";
 import styles from "./NameFilter.module.css";
 
 export default function NameFilter({ setVillagers }) {
