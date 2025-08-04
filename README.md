@@ -57,6 +57,7 @@ npm i
 
 ```
 VITE_API_URL="http://localhost:8080"
+VITE_MODE="development"
 ```
 
 8. Run the frontend! In your terminal, type the command:
