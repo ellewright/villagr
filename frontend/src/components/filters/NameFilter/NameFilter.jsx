@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchVillagerByName } from "../../../api/villager";
+import { fetchVillagersByNameStartingWith } from "../../../api/villager";
 import styles from "./NameFilter.module.css";
 
 export default function NameFilter({ setVillagers }) {
@@ -8,13 +8,13 @@ export default function NameFilter({ setVillagers }) {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        // if (name !== "") {
-        //     const data = await fetchVillagersByName(name);
-        //     setVillagers(data);
-        // } else {
-        //     const data = await fetchVillagers();
-        //     setVillagers(data);
-        // }
+        if (name !== "") {
+            const data = await fetchVillagersByNameStartingWith(name);
+            setVillagers(data);
+        } else {
+            const data = await fetchVillagers();
+            setVillagers(data);
+        }
     }
 
     return (

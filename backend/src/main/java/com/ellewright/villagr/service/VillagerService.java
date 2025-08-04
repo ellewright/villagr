@@ -32,6 +32,11 @@ public class VillagerService {
         return villagers.stream().map(VillagerDTO::new).collect(Collectors.toList());
     }
 
+    public List<VillagerDTO> allVillagersByNameStartingWith(String query) {
+        List<Villager> villagers = villagerRepository.findByNameStartingWith(query);
+        return villagers.stream().map(VillagerDTO::new).collect(Collectors.toList());
+    }
+
     public VillagerDTO fetchVillager(ObjectId id) throws Exception {
         Optional<Villager> optional = villagerRepository.findById(id);
 

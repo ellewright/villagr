@@ -54,6 +54,18 @@ public class VillagerController {
         }
     }
 
+    @GetMapping("/name/{query}")
+    public ResponseEntity<List<VillagerDTO>> getVillagersByNameStartingWith(@PathVariable String query) {
+        try {
+            String capitalizedQuery = query.substring(0, 1).toUpperCase() + query.substring(1).toLowerCase();
+            return new ResponseEntity<List<VillagerDTO>>(
+                    villagerService.allVillagersByNameStartingWith(capitalizedQuery),
+                    HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("/{name}")
     public ResponseEntity<VillagerDTO> getVillagerByName(@PathVariable String name) {
         try {

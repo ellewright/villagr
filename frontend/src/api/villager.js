@@ -45,3 +45,13 @@ export async function fetchVillagersByJobId(jobId) {
         throw error;
     }
 }
+
+export async function fetchVillagersByNameStartingWith(query) {
+    try {
+        const response = await instance.get(`${baseURL}/name/${query}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Failed to fetch villagers with name starting with ${query}: ${error}`);
+        throw error;
+    }
+}

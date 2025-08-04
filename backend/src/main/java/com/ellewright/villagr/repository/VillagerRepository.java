@@ -15,5 +15,7 @@ public interface VillagerRepository extends MongoRepository<Villager, ObjectId> 
 
     List<Villager> findByJobId(ObjectId jobId);
 
+    List<Villager> findByNameStartingWith(String query);
+
     Optional<Villager> findByName(String name);
 }
