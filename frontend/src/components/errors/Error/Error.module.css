@@ -24,8 +24,42 @@
     align-items: center;
 }
 
+.header>* {
+    cursor: pointer;
+}
+
 .body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.body>p {
+    cursor: pointer;
+}
+
+.errorMessage {
+    cursor: pointer;
+    transition: 250ms;
+}
+
+.errorMessage:hover {
+    transform: scale(1.05);
+}
+
+.errorMessage:active {
+    transform: scale(0.95);
+}
+
+.stackTrace {
+    cursor: pointer;
+    transition: 250ms;
+}
+
+.stackTrace:hover {
+    transform: scale(1.05);
+}
+
+.stackTrace:active {
+    transform: scale(0.95);
 }
