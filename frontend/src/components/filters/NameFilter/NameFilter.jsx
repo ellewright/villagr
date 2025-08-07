@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { fetchVillagers, fetchVillagersByNameStartingWith } from "../../../api/villager";
 import styles from "./NameFilter.module.css";
 
 export default function NameFilter({ setVillagers }) {
-    const [name, setName] = useState("");
+    const nameRef = useRef();
 
     async function handleSubmit(e) {
         e.preventDefault();
+        const name = nameRef.current.value;
 
         if (name !== "") {
             const data = await fetchVillagersByNameStartingWith(name);
@@ -24,13 +25,10 @@ export default function NameFilter({ setVillagers }) {
         >
             <input
                 className={styles.input}
-                onChange={(e) => setName(e.target.value)}
+                ref={nameRef}
                 type="text"
             />
-            <button
-                className={styles.submit}
-                type="submit"
-            >
+            <button className={styles.submit}>
                 Filter
             </button>
         </form>
