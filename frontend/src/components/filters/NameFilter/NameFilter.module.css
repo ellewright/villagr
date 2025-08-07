@@ -15,6 +15,7 @@
 }
 
 .submit {
+    cursor: pointer;
     background-color: #111;
     color: #999;
     border: 1px solid #999;
