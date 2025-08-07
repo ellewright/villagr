@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { fetchVillagers, fetchVillagersByJobId } from "../../../api/villager";
 import styles from "./JobFilter.module.css";
 import { fetchJobByTitle } from "../../../api/job";
 
 export default function JobFilter({ setVillagers }) {
-    const [title, setTitle] = useState("");
+    const titleRef = useRef();
 
     async function handleSubmit(e) {
         e.preventDefault();
+        const title = titleRef.current.value;
 
         if (title !== "") {
             const jobData = await fetchJobByTitle(title);
@@ -27,7 +28,7 @@ export default function JobFilter({ setVillagers }) {
         >
             <select
                 className={styles.dropdown}
-                onChange={(e) => setTitle(e.target.value)}
+                ref={titleRef}
             >
                 <option value="">All</option>
                 <option value="Butcher">Butcher</option>
@@ -44,10 +45,7 @@ export default function JobFilter({ setVillagers }) {
                 <option value="Shepherd">Shepherd</option>
                 <option value="Mason">Mason</option>
             </select>
-            <button
-                className={styles.submit}
-                type="submit"
-            >
+            <button className={styles.submit}>
                 Filter
             </button>
         </form>

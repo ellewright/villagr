@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { fetchVillagers, fetchVillagersByGender } from "../../../api/villager";
 import styles from "./GenderFilter.module.css";
 
 export default function GenderFilter({ setVillagers }) {
-    const [gender, setGender] = useState("");
+    const genderRef = useRef();
 
     async function handleSubmit(e) {
         e.preventDefault();
+        const gender = genderRef.current.value;
 
         if (gender !== "") {
             const data = await fetchVillagersByGender(gender);
@@ -24,16 +25,13 @@ export default function GenderFilter({ setVillagers }) {
         >
             <select
                 className={styles.dropdown}
-                onChange={(e) => setGender(e.target.value)}
+                ref={genderRef}
             >
                 <option value="">All</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
-            <button
-                className={styles.submit}
-                type="submit"
-            >
+            <button className={styles.submit}>
                 Filter
             </button>
         </form>
