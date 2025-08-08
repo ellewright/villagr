@@ -1,8 +1,21 @@
+import { useContext } from "react";
 import styles from "./PageContainer.module.css";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 export default function PageContainer({ children }) {
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+
     return (
-        <div className={styles.container}>
+        <div className={isDarkMode ? styles.container : `${styles.container} ${styles.light}`}>
+            <button
+                className={isDarkMode ? styles.button : `${styles.button} ${styles.light}`}
+                onClick={toggleTheme}
+            >
+                {
+                    isDarkMode ? "Light Mode"
+                        : "Dark Mode"
+                }
+            </button>
             {children}
         </div>
     )

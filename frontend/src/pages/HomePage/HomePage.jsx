@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
-import { fetchVillagers, fetchVillagersByGender } from "../../api/villager";
+import { fetchVillagers } from "../../api/villager";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
 import PageContainer from "../../components/containers/PageContainer/PageContainer";
 import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
