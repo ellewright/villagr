@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import styles from "./VillagerCardWide.module.css"
 import { fetchJobs } from "../../../api/job";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 export default function VillagerCardWide({ villager }) {
     const [jobs, setJobs] = useState([]);
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         async function loadJobData() {
@@ -18,7 +20,7 @@ export default function VillagerCardWide({ villager }) {
     return (
         <div
             key={villager.id}
-            className={styles.villager}
+            className={isDarkMode ? styles.villager : `${styles.villager} ${styles.light}`}
         >
             <div className={styles.villagerTitle}>
                 <Link
