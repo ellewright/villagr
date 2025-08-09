@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./HomePage.module.css";
 import { fetchVillagers } from "../../api/villager";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
@@ -10,9 +10,26 @@ import JobFilter from "../../components/filters/JobFilter/JobFilter";
 import NameFilter from "../../components/filters/NameFilter/NameFilter";
 import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
 import { Link } from "react-router-dom";
+import QueryFilter from "../../components/filters/QueryFilter/QueryFilter";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
+    const [query, setQuery] = useState(undefined);
+
+    const filters = [
+        {
+            title: "name",
+            element: <NameFilter key={0} setVillagers={setVillagers} />
+        },
+        {
+            title: "job",
+            element: <JobFilter key={1} setVillagers={setVillagers} />
+        },
+        {
+            title: "gender",
+            element: <GenderFilter key={2} setVillagers={setVillagers} />
+        }
+    ]
 
     useEffect(() => {
         async function loadVillagerData() {
@@ -37,9 +54,12 @@ export default function HomePage() {
                     </h2>
                 </div>
                 <div className={styles.filter}>
-                    <GenderFilter setVillagers={setVillagers} />
-                    <NameFilter setVillagers={setVillagers} />
-                    <JobFilter setVillagers={setVillagers} />
+                    <QueryFilter query={query} setQuery={setQuery} />
+                    {filters.map((filter) => {
+                        if (filter.title === query) {
+                            return filter.element;
+                        }
+                    })}
                 </div>
             </HeaderContainer>
             <BodyContainer>

@@ -1,0 +1,16 @@
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    cursor: pointer;
+    background-color: #111;
+    color: #999;
+    border: 1px solid #999;
+    outline: 0px;
+    width: 40%;
+    padding: 0.25rem 0.25rem;
+}
