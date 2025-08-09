@@ -15,6 +15,11 @@
     padding: 0.25rem 0.25rem;
 }
 
+.dropdown.light {
+    background-color: white;
+    color: #111;
+}
+
 .submit {
     cursor: pointer;
     background-color: #111;
@@ -22,4 +27,9 @@
     border: 1px solid #999;
     border-left: none;
     padding: calc(0.25rem + 1px) calc(0.25rem + 1px);
+}
+
+.submit.light {
+    background-color: white;
+    color: #111;
 }

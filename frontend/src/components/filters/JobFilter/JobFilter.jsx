@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { fetchVillagers, fetchVillagersByJobId } from "../../../api/villager";
 import styles from "./JobFilter.module.css";
 import { fetchJobByTitle } from "../../../api/job";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 export default function JobFilter({ setVillagers }) {
     const titleRef = useRef();
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -27,7 +29,7 @@ export default function JobFilter({ setVillagers }) {
             onSubmit={handleSubmit}
         >
             <select
-                className={styles.dropdown}
+                className={isDarkMode ? styles.dropdown : `${styles.dropdown} ${styles.light}`}
                 ref={titleRef}
             >
                 <option value="">All</option>
@@ -45,7 +47,7 @@ export default function JobFilter({ setVillagers }) {
                 <option value="Shepherd">Shepherd</option>
                 <option value="Mason">Mason</option>
             </select>
-            <button className={styles.submit}>
+            <button className={isDarkMode ? styles.submit : `${styles.submit} ${styles.light}`}>
                 Filter
             </button>
         </form>

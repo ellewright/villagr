@@ -31,7 +31,7 @@ export default function SettingsPage() {
                 </button>
             </BodyContainer>
             <FooterContainer>
-                <div className={styles.footerLinks}>
+                <div className={isDarkMode ? styles.footerLinks : `${styles.footerLinks} ${styles.light}`}>
                     <Link to="/">
                         Home
                     </Link>

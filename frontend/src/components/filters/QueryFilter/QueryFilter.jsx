@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import styles from "./QueryFilter.module.css";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 export default function QueryFilter({ query, setQuery }) {
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+
     return (
         <form className={styles.form}>
             <select
-                className={styles.dropdown}
+                className={isDarkMode ? styles.dropdown : `${styles.dropdown} ${styles.light}`}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             >

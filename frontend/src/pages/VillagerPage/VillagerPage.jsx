@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import styles from "./VillagerPage.module.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { fetchJobById } from "../../api/job";
 import { fetchVillagerByName } from "../../api/villager";
 import { fetchTradesByVillagerId } from "../../api/trade";
@@ -9,12 +9,15 @@ import PageContainer from "../../components/containers/PageContainer/PageContain
 import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
 import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
 import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function VillagerPage() {
     const { name } = useParams();
     const [villager, setVillager] = useState({});
     const [trades, setTrades] = useState([]);
     const [job, setJob] = useState();
+
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         async function loadVillager(name) {
@@ -70,7 +73,7 @@ export default function VillagerPage() {
                 <TradeList trades={trades} />
             </BodyContainer>
             <FooterContainer>
-                <div className={styles.footerLinks}>
+                <div className={isDarkMode ? styles.footerLinks : `${styles.footerLinks} ${styles.light}`}>
                     <Link to="../">
                         Home
                     </Link>

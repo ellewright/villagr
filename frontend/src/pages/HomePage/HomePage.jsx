@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./HomePage.module.css";
 import { fetchVillagers } from "../../api/villager";
 import VillagerCardWide from "../../components/villagers/VillagerCardWide/VillagerCardWide";
@@ -11,10 +11,12 @@ import NameFilter from "../../components/filters/NameFilter/NameFilter";
 import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
 import { Link } from "react-router-dom";
 import QueryFilter from "../../components/filters/QueryFilter/QueryFilter";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
     const [query, setQuery] = useState(undefined);
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     const filters = [
         {
@@ -70,7 +72,7 @@ export default function HomePage() {
                 </div>
             </BodyContainer>
             <FooterContainer>
-                <div className={styles.footerLinks}>
+                <div className={isDarkMode ? styles.footerLinks : `${styles.footerLinks} ${styles.light}`}>
                     <Link to="settings">
                         Settings
                     </Link>

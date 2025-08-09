@@ -52,3 +52,15 @@
 .footerLinks a:active {
     color: #777;
 }
+
+.footerLinks.light a {
+    color: #111;
+}
+
+.footerLinks.light a:hover {
+    color: #222;
+}
+
+.footerLinks.light a:active {
+    color: #333;
+}

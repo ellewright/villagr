@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+.container.light {
+    background-color: white;
+    color: #111;
+}
+
 .trade {
     background-color: white;
     display: grid;
@@ -19,6 +24,11 @@
     align-items: center;
     background-color: #111;
     border: 1px solid white;
+}
+
+.cell.light {
+    background-color: white;
+    border: 1px solid #999;
 }
 
 .cell>img {
