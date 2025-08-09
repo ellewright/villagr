@@ -35,7 +35,7 @@ cd villagr
 cd backend
 ```
 
-3. Create a `.env` file in the root of the directory, and add the following variables:
+3. Create a `.env` file in the root of the backend directory. Add the following variables:
 
 * You can request to be given the variables by emailing me: <a href="mailto:elliewright055@gmail.com">elliewright055@gmail.com</a>.
 
@@ -46,21 +46,27 @@ MONGO_PASSWORD=<password>
 MONGO_CLUSTER=<cluster>
 ```
 
-3. Open a new terminal, and from the root directory, use these commands to move to the frontend and install dependencies:
+4. Run the backend:
+
+```
+mvn spring-boot:run
+```
+
+5. Open a new terminal, and from the root directory, use these commands to move to the frontend and install dependencies:
 
 ```
 cd frontend
 npm i
 ```
 
-7. In the root of the frontend directory, create a `.env` file, and add:
+6. In the root of the frontend directory, create a `.env` file and add:
 
 ```
 VITE_API_URL="http://localhost:8080/api"
 VITE_MODE="development"
 ```
 
-8. Run the frontend! In your terminal, type the command:
+7. Run the frontend! In your terminal, type the command:
 
 ```
 npm run dev
