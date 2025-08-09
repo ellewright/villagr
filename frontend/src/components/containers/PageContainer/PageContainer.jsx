@@ -7,15 +7,6 @@ export default function PageContainer({ children }) {
 
     return (
         <div className={isDarkMode ? styles.container : `${styles.container} ${styles.light}`}>
-            <button
-                className={isDarkMode ? styles.button : `${styles.button} ${styles.light}`}
-                onClick={toggleTheme}
-            >
-                {
-                    isDarkMode ? "Light Mode"
-                        : "Dark Mode"
-                }
-            </button>
             {children}
         </div>
     )

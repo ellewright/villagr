@@ -1,0 +1,14 @@
+.button {
+    cursor: pointer;
+    background-color: #333;
+    color: #999;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.button.light {
+    background-color: #111;
+    color: #999;
+}
