@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./VillagerPage.module.css";
 import { useEffect, useState } from "react";
 import { fetchJobById } from "../../api/job";
@@ -8,6 +8,7 @@ import TradeList from "../../components/trades/TradeList/TradeList";
 import PageContainer from "../../components/containers/PageContainer/PageContainer";
 import HeaderContainer from "../../components/containers/HeaderContainer/HeaderContainer";
 import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
+import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
 
 export default function VillagerPage() {
     const { name } = useParams();
@@ -68,6 +69,16 @@ export default function VillagerPage() {
                 </div>
                 <TradeList trades={trades} />
             </BodyContainer>
+            <FooterContainer>
+                <div className={styles.footerLinks}>
+                    <Link to="../">
+                        Home
+                    </Link>
+                    <Link to="../settings">
+                        Settings
+                    </Link>
+                </div>
+            </FooterContainer>
         </PageContainer>
     );
 }

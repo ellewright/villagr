@@ -8,6 +8,8 @@ import BodyContainer from "../../components/containers/BodyContainer/BodyContain
 import GenderFilter from "../../components/filters/GenderFilter/GenderFilter";
 import JobFilter from "../../components/filters/JobFilter/JobFilter";
 import NameFilter from "../../components/filters/NameFilter/NameFilter";
+import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
@@ -47,6 +49,13 @@ export default function HomePage() {
                     ))}
                 </div>
             </BodyContainer>
+            <FooterContainer>
+                <div className={styles.footerLinks}>
+                    <Link to="settings">
+                        Settings
+                    </Link>
+                </div>
+            </FooterContainer>
         </PageContainer>
     );
 }

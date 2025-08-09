@@ -4,6 +4,8 @@ import HeaderContainer from "../../components/containers/HeaderContainer/HeaderC
 import PageContainer from "../../components/containers/PageContainer/PageContainer";
 import styles from "./SettingsPage.module.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
+import { Link } from "react-router-dom";
 
 export default function SettingsPage() {
     const { isDarkMode, toggleTheme } = useContext(ThemeContext);
@@ -28,6 +30,13 @@ export default function SettingsPage() {
                     }
                 </button>
             </BodyContainer>
+            <FooterContainer>
+                <div className={styles.footerLinks}>
+                    <Link to="/">
+                        Home
+                    </Link>
+                </div>
+            </FooterContainer>
         </PageContainer>
     )
 }

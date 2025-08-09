@@ -12,3 +12,10 @@
     background-color: #111;
     color: #999;
 }
+
+.footerLinks {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

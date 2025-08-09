@@ -17,10 +17,9 @@
     align-items: center;
 }
 
-
-.footer {
+.footerLinks {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }

@@ -30,3 +30,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.footerLinks {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
