@@ -19,3 +19,18 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.footerLinks a {
+    color: #999;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+}
+
+.footerLinks a:hover {
+    color: #888;
+}
+
+.footerLinks a:active {
+    color: #777;
+}
