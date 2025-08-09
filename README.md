@@ -37,14 +37,14 @@ cd backend
 
 3. Create a `.env` file in the root of the backend directory. Add the following variables:
 
-* You can request to be given the variables by emailing me: <a href="mailto:elliewright055@gmail.com">elliewright055@gmail.com</a>.
-
 ```
 MONGO_DATABASE=<database>
 MONGO_USER=<username>
 MONGO_PASSWORD=<password>
 MONGO_CLUSTER=<cluster>
 ```
+
+* You can request to be given the variables by emailing me: <a href="mailto:elliewright055@gmail.com">elliewright055@gmail.com</a>.
 
 4. Run the backend:
 
