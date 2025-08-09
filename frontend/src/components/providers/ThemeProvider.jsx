@@ -2,13 +2,23 @@ import { useEffect, useState } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function ThemeProvider({ children }) {
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        const initialValue = localStorage.getItem("DARK_MODE");
+
+        if (initialValue !== null) {
+            return JSON.parse(initialValue);
+        } else {
+            return true;
+        }
+    });
 
     function toggleTheme() {
-        setIsDarkMode(d => !d);
+        setIsDarkMode(prev => !prev);
     }
 
     useEffect(() => {
+        localStorage.setItem("DARK_MODE", JSON.stringify(isDarkMode));
+
         if (isDarkMode) {
             document.body.style.backgroundColor = "#111";
             document.body.style.color = "#999";
