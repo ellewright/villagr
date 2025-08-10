@@ -2,7 +2,7 @@
 ## The social media application for Minecraft villagers.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/2c2d78a6-b1c1-4e72-a0d8-32554e731d11" width="360" />
+  <img src="https://github.com/user-attachments/assets/cb6d2576-d5e8-4752-8e43-2845c74c4c67" width="360" />
   <img src="https://github.com/user-attachments/assets/a761bf7a-565e-4be9-b514-bf3c5d5b0080" width="360" />
 </p>
 
