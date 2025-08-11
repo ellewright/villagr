@@ -59,11 +59,10 @@ cd frontend
 npm i
 ```
 
-6. In the root of the frontend directory, create a `.env` file and add:
+6. This app is currently only avaliable in development. In the root of the frontend directory, create a `.env.development` file, and add:
 
 ```
 VITE_API_URL="http://localhost:8080/api"
-VITE_MODE="development"
 ```
 
 7. Run the frontend! In your terminal, type the command:
