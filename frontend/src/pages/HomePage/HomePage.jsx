@@ -12,6 +12,7 @@ import FooterContainer from "../../components/containers/FooterContainer/FooterC
 import { Link } from "react-router-dom";
 import QueryFilter from "../../components/filters/QueryFilter/QueryFilter";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import WelcomeModal from "../../components/modals/WelcomeModal/WelcomeModal";
 
 export default function HomePage() {
     const [villagers, setVillagers] = useState([]);
@@ -42,10 +43,9 @@ export default function HomePage() {
         loadVillagerData();
     }, []);
 
-    throw new Error("")
-
     return (
         <PageContainer>
+            <WelcomeModal />
             <HeaderContainer>
                 <div className={styles.title}>
                     <h1>
