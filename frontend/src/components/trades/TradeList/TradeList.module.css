@@ -6,8 +6,11 @@
 
 .container.light {
     background-color: var(--light-background);
-    color: var(--light-text);
     border: 1px solid var(--light-border);
+}
+
+.title {
+    color: var(--secondary);
 }
 
 .trade {

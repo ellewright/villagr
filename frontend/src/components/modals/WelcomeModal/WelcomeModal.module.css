@@ -12,8 +12,14 @@
     padding: 1rem;
 }
 
+.modal.light {
+    background-color: var(--light-background);
+    color: var(--light-text);
+    border-color: var(--light-border);
+}
+
 .button {
-    background-color: var(--dark-background);
+    background-color: var(--secondary);
     color: var(--dark-text);
     border: 1px solid var(--dark-border);
     border-radius: 5px;
@@ -22,4 +28,10 @@
     top: 1rem;
     left: 20.65rem;
     padding: 0.5rem;
+}
+
+.button.light {
+    background-color: var(--secondary);
+    color: var(--light-text);
+    border-color: var(--light-border);
 }

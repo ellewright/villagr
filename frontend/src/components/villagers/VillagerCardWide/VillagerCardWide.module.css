@@ -29,7 +29,7 @@
 }
 
 .link {
-    color: var(--dark-text);
+    color: var(--secondary);
     text-decoration: none;
 }
 

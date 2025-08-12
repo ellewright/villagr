@@ -8,7 +8,7 @@ export default function TradeList({ trades }) {
 
     return (
         <div className={isDarkMode ? styles.container : `${styles.container} ${styles.light}`}>
-            <h2>Trades</h2>
+            <h2 className={styles.title}>Trades</h2>
             <div className={styles.list}>
                 <div className={styles.trade}>
                     <p className={isDarkMode ? styles.cell : `${styles.cell} ${styles.light}`}>

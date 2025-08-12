@@ -1,6 +1,10 @@
+.title {
+    color: var(--primary);
+}
+
 .button {
     cursor: pointer;
-    background-color: var(--dark-background);
+    background-color: var(--secondary);
     color: var(--dark-text);
     border: 1px solid var(--dark-border);
     border: none;
@@ -10,7 +14,6 @@
 }
 
 .button.light {
-    background-color: var(--light-background);
     color: var(--light-text);
     border-color: var(--light-border);
 }
