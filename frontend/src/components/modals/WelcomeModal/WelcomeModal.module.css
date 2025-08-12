@@ -1,5 +1,7 @@
 .modal {
-    background-color: #555;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
     border-radius: 5px;
     width: 24rem;
     height: 6rem;
@@ -11,12 +13,13 @@
 }
 
 .button {
-    background-color: rgba(255, 255, 255, 33%);
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+    border-radius: 5px;
     cursor: pointer;
     position: relative;
     top: 1rem;
     left: 20.65rem;
-    border: none;
-    border-radius: 5px;
     padding: 0.5rem;
 }

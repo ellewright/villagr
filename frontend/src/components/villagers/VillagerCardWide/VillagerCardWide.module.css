@@ -1,5 +1,7 @@
 .villager {
-    background-color: #222;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
     width: 75%;
     display: flex;
     flex-direction: column;
@@ -13,8 +15,9 @@
 }
 
 .villager.light {
-    background-color: #fff;
-    color: #111;
+    background-color: var(--light-background);
+    color: var(--light-text);
+    border-color: var(--light-border);
 }
 
 .villagerTitle {
@@ -26,7 +29,7 @@
 }
 
 .link {
-    color: #999;
+    color: var(--dark-text);
     text-decoration: none;
 }
 

@@ -5,30 +5,32 @@
 }
 
 .container.light {
-    background-color: white;
-    color: #111;
+    background-color: var(--light-background);
+    color: var(--light-text);
+    border: 1px solid var(--light-border);
 }
 
 .trade {
-    background-color: white;
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 1px;
 }
 
 .cell {
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
     width: 16rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #111;
-    border: 1px solid white;
 }
 
 .cell.light {
-    background-color: white;
-    border: 1px solid #999;
+    background-color: var(--light-background);
+    color: var(--light-text);
+    border: 1px solid var(--light-border);
 }
 
 .cell>img {

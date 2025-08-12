@@ -11,6 +11,6 @@
 }
 
 .container.light {
-    background-color: #999;
-    color: #111;
+    background-color: var(--light-background);
+    color: var(--light-text);
 }

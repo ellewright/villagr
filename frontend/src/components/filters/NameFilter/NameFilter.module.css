@@ -6,29 +6,31 @@
 }
 
 .input {
-    background-color: #111;
-    color: #999;
-    border: 1px solid #999;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
     outline: 0px;
     width: 40%;
     padding: calc(0.25rem + 1px) 0.25rem;
 }
 
 .input.light {
-    background-color: white;
-    color: #111;
+    background-color: var(--light-background);
+    color: var(--light-text);
+    border-color: var(--light-border);
 }
 
 .submit {
     cursor: pointer;
-    background-color: #111;
-    color: #999;
-    border: 1px solid #999;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
     border-left: none;
     padding: calc(0.25rem + 1px) calc(0.25rem + 1px);
 }
 
 .submit.light {
-    background-color: white;
-    color: #111;
+    background-color: var(--light-background);
+    color: var(--light-text);
+    border-color: var(--light-border);
 }

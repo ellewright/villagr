@@ -20,11 +20,11 @@ export default function ThemeProvider({ children }) {
         localStorage.setItem("DARK_MODE", JSON.stringify(isDarkMode));
 
         if (isDarkMode) {
-            document.body.style.backgroundColor = "#111";
-            document.body.style.color = "#999";
+            document.body.style.backgroundColor = "var(--dark-background)";
+            document.body.style.color = "var(--dark-text)";
         } else {
-            document.body.style.backgroundColor = "#999";
-            document.body.style.color = "#111";
+            document.body.style.backgroundColor = "var(--light-background)";
+            document.body.style.color = "var(--light-text)";
         }
     }, [isDarkMode]);
 

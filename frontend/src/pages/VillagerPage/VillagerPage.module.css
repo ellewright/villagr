@@ -39,28 +39,28 @@
 }
 
 .footerLinks a {
-    color: #999;
+    color: var(--dark-text);
     text-decoration: none;
     padding: 0.25rem 0.5rem;
     border-radius: 5px;
 }
 
 .footerLinks a:hover {
-    color: #888;
+    color: var(--dark-text);
 }
 
 .footerLinks a:active {
-    color: #777;
+    color: var(--dark-text);
 }
 
 .footerLinks.light a {
-    color: #111;
+    color: var(--light-text);
 }
 
 .footerLinks.light a:hover {
-    color: #222;
+    color: var(--light-text);
 }
 
 .footerLinks.light a:active {
-    color: #333;
+    color: var(--light-text);
 }
