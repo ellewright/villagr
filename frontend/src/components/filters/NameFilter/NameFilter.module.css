@@ -14,10 +14,26 @@
     padding: calc(0.25rem + 1px) 0.25rem;
 }
 
+.input:hover {
+    background-color: var(--dark-background-light);
+}
+
+.input:active {
+    background-color: var(--dark-background-dark);
+}
+
 .input.light {
     background-color: var(--light-background);
     color: var(--light-text);
     border-color: var(--light-border);
+}
+
+.input.light:hover {
+    background-color: var(--light-background-light);
+}
+
+.input.light:active {
+    background-color: var(--light-background-dark);
 }
 
 .submit {
@@ -29,6 +45,14 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: calc(0.25rem + 1px) calc(0.25rem + 1px);
+}
+
+.submit:hover {
+    background-color: var(--secondary-light);
+}
+
+.submit:active {
+    background-color: var(--secondary-dark);
 }
 
 .submit.light {
