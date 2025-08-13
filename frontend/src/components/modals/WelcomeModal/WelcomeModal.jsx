@@ -11,11 +11,11 @@ export default function WelcomeModal() {
     if (isOpen) {
         return createPortal(
             <div className={isDarkMode ? styles.modal : `${styles.modal} ${styles.light}`}>
-                <h1>
-                    Welcome to Villagr!
+                <h1 className={styles.title}>
+                    Welcome to <span>Villagr</span>!
                 </h1>
-                <p>
-                    Click Explore to continue.
+                <p className={styles.subtitle}>
+                    Click <span>Explore</span> to continue.
                 </p>
                 <button
                     className={isDarkMode ? styles.button : `${styles.button} ${styles.light}`}

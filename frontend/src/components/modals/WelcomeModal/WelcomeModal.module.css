@@ -13,9 +13,17 @@
 }
 
 .modal.light {
-    background-color: var(--light-background);
+    background-color: var(--light-background-dark);
     color: var(--light-text);
     border-color: var(--light-border);
+}
+
+.title>span {
+    color: var(--primary-dark);
+}
+
+.subtitle>span {
+    color: var(--secondary-dark);
 }
 
 .button {
@@ -30,8 +38,15 @@
     padding: 0.5rem;
 }
 
+.button:hover {
+    background-color: var(--secondary-light);
+}
+
+.button:active {
+    background-color: var(--secondary-dark);
+}
+
 .button.light {
-    background-color: var(--secondary);
     color: var(--light-text);
     border-color: var(--light-border);
 }
