@@ -11,10 +11,14 @@ export default function TradeList({ trades }) {
             <h2 className={styles.title}>Trades</h2>
             <div className={styles.list}>
                 <div className={styles.trade}>
-                    <p className={isDarkMode ? styles.cell : `${styles.cell} ${styles.light}`}>
+                    <p
+                        className={isDarkMode ? styles.columnTitle : `${styles.columnTitle} ${styles.light}`}
+                    >
                         For sale
                     </p>
-                    <p className={isDarkMode ? styles.cell : `${styles.cell} ${styles.light}`}>
+                    <p
+                        className={isDarkMode ? styles.columnTitle : `${styles.columnTitle} ${styles.light}`}
+                    >
                         Price
                     </p>
                 </div>

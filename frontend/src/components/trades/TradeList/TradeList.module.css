@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .container.light {
     background-color: var(--light-background);
-    border: 1px solid var(--light-border);
 }
 
 .title {
@@ -19,7 +19,27 @@
     gap: 1px;
 }
 
+.columnTitle {
+    cursor: pointer;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    width: 16rem;
+    display: flex;
+    border: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.columnTitle.light {
+    background-color: var(--light-background);
+    color: var(--light-text);
+}
+
 .cell {
+    cursor: pointer;
     background-color: var(--dark-background);
     color: var(--dark-text);
     border: 1px solid var(--dark-border);
@@ -28,12 +48,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.cell:hover {
+    background-color: var(--dark-background-light);
+}
+
+.cell:active {
+    background-color: var(--dark-background-dark);
 }
 
 .cell.light {
     background-color: var(--light-background);
     color: var(--light-text);
     border: 1px solid var(--light-border);
+}
+
+.cell.light:hover {
+    background-color: var(--light-background-light);
+}
+
+.cell.light:active {
+    background-color: var(--light-background-dark);
 }
 
 .cell>img {
