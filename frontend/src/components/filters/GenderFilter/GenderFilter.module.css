@@ -21,6 +21,14 @@
     border-color: var(--light-border);
 }
 
+.dropdown.light:hover {
+    background-color: var(--light-background-light);
+}
+
+.dropdown.light:active {
+    background-color: var(--light-background-dark);
+}
+
 .submit {
     cursor: pointer;
     background-color: var(--secondary);
@@ -30,6 +38,14 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: calc(0.25rem + 1px) calc(0.25rem + 1px);
+}
+
+.submit:hover {
+    background-color: var(--secondary-light);
+}
+
+.submit:active {
+    background-color: var(--secondary-dark);
 }
 
 .submit.light {
