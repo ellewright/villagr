@@ -2,8 +2,10 @@
 ## The social media application for Minecraft villagers.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cb6d2576-d5e8-4752-8e43-2845c74c4c67" width="360" />
-  <img src="https://github.com/user-attachments/assets/a761bf7a-565e-4be9-b514-bf3c5d5b0080" width="360" />
+  <img src="https://github.com/user-attachments/assets/404f9e30-a36a-4ed3-8da4-5d4d473533ea" width="360" />
+  <img src="https://github.com/user-attachments/assets/8e27fad5-1e20-4396-8bd5-e5e8334b759f" width="360" />
+  <img src="https://github.com/user-attachments/assets/bf493012-2a3d-4102-a061-dbbb6b5e4646" width="360" />
+  <img src="https://github.com/user-attachments/assets/872bef38-4593-42a5-8dda-40fbbbbb6a3c" width="360" />
 </p>
 
 Deep underground Eltopia lies a village sheltered from the dangeous world. Villagers live their lives in a sheltered bubble and have developed a steady society and economy! Villagr is a social media/trade application used to assist with village transactions. While currently in an unfinished state, the final application will ultimately allow users to:
