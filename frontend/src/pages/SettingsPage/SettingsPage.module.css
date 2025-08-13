@@ -13,6 +13,14 @@
     padding: 0.25rem 0.5rem;
 }
 
+.button:hover {
+    background-color: var(--secondary-light);
+}
+
+.button:active {
+    background-color: var(--secondary-dark);
+}
+
 .button.light {
     color: var(--light-text);
     border-color: var(--light-border);
@@ -33,11 +41,11 @@
 }
 
 .footerLinks a:hover {
-    color: var(--dark-text);
+    color: var(--dark-background-light);
 }
 
 .footerLinks a:active {
-    color: var(--dark-text);
+    color: var(--dark-background-dark);
 }
 
 .footerLinks.light a {
@@ -45,9 +53,9 @@
 }
 
 .footerLinks.light a:hover {
-    color: var(--light-text);
+    color: var(--light-background-dark);
 }
 
 .footerLinks.light a:active {
-    color: var(--light-text);
+    color: var(--dark-background-light);
 }
