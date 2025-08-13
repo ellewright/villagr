@@ -15,6 +15,14 @@
     padding: 0.25rem 0.25rem;
 }
 
+.dropdown:hover {
+    background-color: var(--dark-background-light);
+}
+
+.dropdown:active {
+    background-color: var(--dark-background-dark);
+}
+
 .dropdown.light {
     background-color: var(--light-background);
     color: var(--light-text);
