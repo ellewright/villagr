@@ -1,5 +1,5 @@
 .villager {
-    background-color: var(--dark-background);
+    background-color: var(--dark-background-light);
     color: var(--dark-text);
     border: 1px solid var(--dark-border);
     width: 75%;
@@ -15,7 +15,7 @@
 }
 
 .villager.light {
-    background-color: var(--light-background);
+    background-color: var(--light-background-dark);
     color: var(--light-text);
     border-color: var(--light-border);
 }
@@ -33,6 +33,14 @@
     text-decoration: none;
 }
 
+.link:hover {
+    color: var(--secondary-light);
+}
+
+.link:active {
+    color: var(--secondary-dark);
+}
+
 .villagerName {
     margin: 0;
 }
@@ -43,7 +51,17 @@
 }
 
 .profilePicture {
+    cursor: pointer;
     max-width: 90px;
     border-radius: 99999px;
     margin-bottom: 1.25rem;
+    transition: 250ms;
+}
+
+.profilePicture:hover {
+    transform: scale(1.05);
+}
+
+.profilePicture:active {
+    transform: scale(0.95);
 }

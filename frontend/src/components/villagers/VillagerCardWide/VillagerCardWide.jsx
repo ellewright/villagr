@@ -46,11 +46,13 @@ export default function VillagerCardWide({ villager }) {
                     })
                 }
             </div>
-            <img
-                src={`/${villager.name}.png`}
-                className={styles.profilePicture}
-                alt="Villager profile picture."
-            />
+            <Link to={`/${villager.name}`}>
+                <img
+                    src={`/${villager.name}.png`}
+                    className={styles.profilePicture}
+                    alt="Villager profile picture."
+                />
+            </Link>
         </div>
     );
 }
