@@ -10,6 +10,7 @@ import HeaderContainer from "../../components/containers/HeaderContainer/HeaderC
 import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
 import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import Messager from "../../components/messages/MessageList/Messager";
 
 export default function VillagerPage() {
     const { name } = useParams();
@@ -71,6 +72,7 @@ export default function VillagerPage() {
                     </div>
                 </div>
                 <TradeList trades={trades} />
+                <Messager villager={villager} />
             </BodyContainer>
             <FooterContainer>
                 <div className={isDarkMode ? styles.footerLinks : `${styles.footerLinks} ${styles.light}`}>
