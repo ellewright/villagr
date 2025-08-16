@@ -7,7 +7,7 @@ export default function Messager({ villager }) {
         {
             id: crypto.randomUUID(),
             author: villager.name,
-            message: "Hello! How can I help you today?"
+            message: `Hello, I'm ${villager.name}!`
         }
     ]);
 
@@ -18,6 +18,10 @@ export default function Messager({ villager }) {
             id: crypto.randomUUID(),
             author: "User",
             message: newMessage
+        }, {
+            id: crypto.randomUUID(),
+            author: villager.name,
+            message: "We're working on building my communication skills. Stay tuned!"
         }]);
 
         setNewMessage("");
