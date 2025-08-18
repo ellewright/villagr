@@ -10,7 +10,7 @@ import HeaderContainer from "../../components/containers/HeaderContainer/HeaderC
 import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
 import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import Messager from "../../components/messages/MessageList/Messager";
+import Messager from "../../components/messages/Messager/Messager";
 
 export default function VillagerPage() {
     const { name } = useParams();
