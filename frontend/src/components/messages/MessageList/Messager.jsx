@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Messager.module.css";
 
-export default function Messager({ villager }) {
+export default function Messager({ villager, job, trades }) {
     const [newMessage, setNewMessage] = useState("");
     const [messages, setMessages] = useState([]);
 
@@ -11,12 +11,19 @@ export default function Messager({ villager }) {
                 id: crypto.randomUUID(),
                 author: villager.name,
                 message: `Hello, I'm ${villager.name}!`
+            }, {
+                id: crypto.randomUUID(),
+                author: villager.name,
+                message: `We're working on my communication skills. 
+                Right now, you can ask about my NAME, GENDER, or JOB!`
             }]);
         }
     }, [villager]);
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        const villagerResponse = getVillagerResponse(newMessage);
 
         setMessages((prev) => [...prev, {
             id: crypto.randomUUID(),
@@ -25,10 +32,23 @@ export default function Messager({ villager }) {
         }, {
             id: crypto.randomUUID(),
             author: villager.name,
-            message: "We're working on building my communication skills. Stay tuned!"
+            message: villagerResponse
         }]);
 
         setNewMessage("");
+    }
+
+    function getVillagerResponse(request) {
+        switch (request.toUpperCase()) {
+            case "NAME":
+                return `My name is ${villager.name}; nice to meet you!`;
+            case "GENDER":
+                return `I am a ${villager.gender}.`;
+            case "JOB":
+                return `I am a ${job.title}.`;
+            default:
+                return `Hmm, I couldn't understand that!`;
+        }
     }
 
     return (

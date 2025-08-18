@@ -72,7 +72,11 @@ export default function VillagerPage() {
                     </div>
                 </div>
                 <TradeList trades={trades} />
-                <Messager villager={villager} />
+                <Messager
+                    villager={villager}
+                    job={job}
+                    trades={trades}
+                />
             </BodyContainer>
             <FooterContainer>
                 <div className={isDarkMode ? styles.footerLinks : `${styles.footerLinks} ${styles.light}`}>
