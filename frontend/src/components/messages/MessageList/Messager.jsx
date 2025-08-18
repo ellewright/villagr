@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Messager.module.css";
 
 export default function Messager({ villager }) {
     const [newMessage, setNewMessage] = useState("");
-    const [messages, setMessages] = useState([
-        {
-            id: crypto.randomUUID(),
-            author: villager.name,
-            message: `Hello, I'm ${villager.name}!`
+    const [messages, setMessages] = useState([]);
+
+    useEffect(() => {
+        if (villager.name !== undefined) {
+            setMessages(prev => [...prev, {
+                id: crypto.randomUUID(),
+                author: villager.name,
+                message: `Hello, I'm ${villager.name}!`
+            }]);
         }
-    ]);
+    }, [villager]);
 
     function handleSubmit(e) {
         e.preventDefault();

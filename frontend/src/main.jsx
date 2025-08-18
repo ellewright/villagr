@@ -6,9 +6,9 @@ import { router } from './router/router.jsx';
 import ThemeProvider from './contexts/providers/ThemeProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </StrictMode>,
+  // <StrictMode>
+  <ThemeProvider>
+    <RouterProvider router={router} />
+  </ThemeProvider>
+  // </StrictMode>
 )
