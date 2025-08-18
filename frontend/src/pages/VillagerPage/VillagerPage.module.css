@@ -28,6 +28,28 @@
     align-items: center;
 }
 
+.pageLinks {
+    width: 100%;
+    display: flex;
+}
+
+.pageLinks>button {
+    cursor: pointer;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+    flex: 1;
+    padding: 0.5rem 0;
+}
+
+.pageLinks>button:hover {
+    background-color: var(--dark-background-light);
+}
+
+.pageLinks>button:active {
+    background-color: var(--dark-background-dark);
+}
+
 .footerLinks {
     width: 100%;
     display: flex;
