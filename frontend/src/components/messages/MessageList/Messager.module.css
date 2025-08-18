@@ -46,7 +46,7 @@
 }
 
 .newChatForm {
-    width: 100%;
+    width: calc(100% - 1px);
     display: flex;
     position: absolute;
     bottom: 0;
