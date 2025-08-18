@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Messager.module.css";
+import Message from "../Message/Message";
 
 export default function Messager({ villager, job, trades }) {
     const [newMessage, setNewMessage] = useState("");
@@ -10,11 +11,11 @@ export default function Messager({ villager, job, trades }) {
             setMessages(prev => [...prev, {
                 id: crypto.randomUUID(),
                 author: villager.name,
-                message: `Hello, I'm ${villager.name}!`
+                body: `Hello, I'm ${villager.name}!`
             }, {
                 id: crypto.randomUUID(),
                 author: villager.name,
-                message: `We're working on my communication skills. 
+                body: `We're working on my communication skills. 
                 Right now, you can ask about my NAME, GENDER, JOB, or TRADES!`
             }]);
         }
@@ -28,11 +29,11 @@ export default function Messager({ villager, job, trades }) {
         setMessages((prev) => [...prev, {
             id: crypto.randomUUID(),
             author: "User",
-            message: newMessage
+            body: newMessage
         }, {
             id: crypto.randomUUID(),
             author: villager.name,
-            message: villagerResponse
+            body: villagerResponse
         }]);
 
         setNewMessage("");
@@ -60,35 +61,7 @@ export default function Messager({ villager, job, trades }) {
         <div className={styles.chatContainer}>
             <div className={styles.chatList}>
                 {messages.map((message) => (
-                    <div
-                        key={message.id}
-                        className={`${styles.chat} 
-                        ${message.author === "User"
-                                ? styles.user
-                                : styles.villager}`}
-                    >
-                        {message.author !== "User" && (
-                            <img
-                                className={styles.chatImg}
-                                src={`/${villager.name}.png`}
-                                alt="User profile picture."
-                            />
-                        )}
-                        <p className={`${styles.chatMessage} 
-                            ${message.author === "User"
-                                ? styles.user
-                                : styles.villager}`}
-                        >
-                            {message.message}
-                        </p>
-                        {message.author === "User" && (
-                            <img
-                                className={styles.chatImg}
-                                src="/User.jpg"
-                                alt="User profile picture."
-                            />
-                        )}
-                    </div>
+                    <Message key={message.id} author={message.author} body={message.body} />
                 ))}
             </div>
             <form
