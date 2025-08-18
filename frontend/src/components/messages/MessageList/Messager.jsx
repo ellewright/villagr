@@ -15,7 +15,7 @@ export default function Messager({ villager, job, trades }) {
                 id: crypto.randomUUID(),
                 author: villager.name,
                 message: `We're working on my communication skills. 
-                Right now, you can ask about my NAME, GENDER, or JOB!`
+                Right now, you can ask about my NAME, GENDER, JOB, or TRADES!`
             }]);
         }
     }, [villager]);
@@ -23,7 +23,7 @@ export default function Messager({ villager, job, trades }) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        const villagerResponse = getVillagerResponse(newMessage);
+        const villagerResponse = getVillagerResponse(newMessage, trades);
 
         setMessages((prev) => [...prev, {
             id: crypto.randomUUID(),
@@ -38,7 +38,7 @@ export default function Messager({ villager, job, trades }) {
         setNewMessage("");
     }
 
-    function getVillagerResponse(request) {
+    function getVillagerResponse(request, trades) {
         switch (request.toUpperCase()) {
             case "NAME":
                 return `My name is ${villager.name}; nice to meet you!`;
@@ -46,6 +46,11 @@ export default function Messager({ villager, job, trades }) {
                 return `I am a ${villager.gender}.`;
             case "JOB":
                 return `I am a ${job.title}.`;
+            case "TRADES":
+                return `Okay, here's what I have so far:
+                ${trades.map(trade => {
+                    return ` ${trade.bidQuantity} ${trade.bid} for ${trade.askQuantity} ${trade.ask}`
+                })}`;
             default:
                 return `Hmm, I couldn't understand that!`;
         }
