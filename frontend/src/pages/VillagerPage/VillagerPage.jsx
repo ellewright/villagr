@@ -11,6 +11,7 @@ import BodyContainer from "../../components/containers/BodyContainer/BodyContain
 import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Messager from "../../components/messages/Messager/Messager";
+import { VillagerContext } from "../../contexts/VillagerContext";
 
 export default function VillagerPage() {
     const { name } = useParams();
@@ -18,7 +19,7 @@ export default function VillagerPage() {
     const [trades, setTrades] = useState([]);
     const [job, setJob] = useState();
 
-    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+    const { isDarkMode } = useContext(ThemeContext);
 
     const [tab, setTab] = useState(0);
 
@@ -49,47 +50,45 @@ export default function VillagerPage() {
     }, [villager]);
 
     return (
-        <PageContainer>
-            <HeaderContainer>
-                <div className={styles.name}>
-                    <h1>
-                        {villager.name}
-                    </h1>
-                </div>
-                <div>
-                    <img
-                        className={styles.profilePicture}
-                        src={`/${villager.name}.png`}
-                        alt={`${villager.name}'s profile picture.`}
-                    />
-                </div>
-            </HeaderContainer>
-            <BodyContainer>
-                <div className={isDarkMode ? styles.pageLinks : `${styles.pageLinks} ${styles.light}`}>
-                    <button onClick={() => setTab(0)}>Trade List</button>
-                    <button onClick={() => setTab(1)}>Messenger</button>
-                </div>
-                {tab === 0
-                    ? (
-                        <TradeList trades={trades} />
-                    ) : (
-                        <Messager
-                            villager={villager}
-                            job={job}
-                            trades={trades}
+        <VillagerContext.Provider value={{ villager, job, trades }}>
+            <PageContainer>
+                <HeaderContainer>
+                    <div className={styles.name}>
+                        <h1>
+                            {villager.name}
+                        </h1>
+                    </div>
+                    <div>
+                        <img
+                            className={styles.profilePicture}
+                            src={`/${villager.name}.png`}
+                            alt={`${villager.name}'s profile picture.`}
                         />
-                    )}
-            </BodyContainer>
-            <FooterContainer>
-                <div className={isDarkMode ? styles.footerLinks : `${styles.footerLinks} ${styles.light}`}>
-                    <Link to="../">
-                        Home
-                    </Link>
-                    <Link to="../settings">
-                        Settings
-                    </Link>
-                </div>
-            </FooterContainer>
-        </PageContainer>
+                    </div>
+                </HeaderContainer>
+                <BodyContainer>
+                    <div className={isDarkMode ? styles.pageLinks : `${styles.pageLinks} ${styles.light}`}>
+                        <button onClick={() => setTab(0)}>Trade List</button>
+                        <button onClick={() => setTab(1)}>Messenger</button>
+                    </div>
+                    {tab === 0
+                        ? (
+                            <TradeList />
+                        ) : (
+                            <Messager />
+                        )}
+                </BodyContainer>
+                <FooterContainer>
+                    <div className={isDarkMode ? styles.footerLinks : `${styles.footerLinks} ${styles.light}`}>
+                        <Link to="../">
+                            Home
+                        </Link>
+                        <Link to="../settings">
+                            Settings
+                        </Link>
+                    </div>
+                </FooterContainer>
+            </PageContainer>
+        </VillagerContext.Provider>
     );
 }

@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import styles from "./Messager.module.css";
 import Message from "../Message/Message";
+import { VillagerContext } from "../../../contexts/VillagerContext";
 
-export default function Messager({ villager, job, trades }) {
+export default function Messager() {
     const [newMessage, setNewMessage] = useState("");
     const [messages, setMessages] = useState([]);
 
-    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+    const { villager, job, trades } = useContext(VillagerContext);
+    const { isDarkMode } = useContext(ThemeContext);
 
     useEffect(() => {
         if (villager.name !== undefined) {

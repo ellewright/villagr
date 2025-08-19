@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { getSrc } from "../../../util/util";
 import styles from "./TradeList.module.css";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import { VillagerContext } from "../../../contexts/VillagerContext";
 
-export default function TradeList({ trades }) {
-    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+export default function TradeList() {
+    const { isDarkMode } = useContext(ThemeContext);
+    const { trades } = useContext(VillagerContext);
 
     return (
         <div className={isDarkMode ? styles.container : `${styles.container} ${styles.light}`}>
