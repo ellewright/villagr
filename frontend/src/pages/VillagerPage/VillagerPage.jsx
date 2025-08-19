@@ -20,7 +20,7 @@ export default function VillagerPage() {
 
     const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
-    const [page, setPage] = useState(0);
+    const [tab, setTab] = useState(0);
 
     useEffect(() => {
         async function loadVillager(name) {
@@ -57,27 +57,19 @@ export default function VillagerPage() {
                     </h1>
                 </div>
                 <div>
-                    <div>
-                        <img
-                            className={styles.profilePicture}
-                            src={`/${villager.name}.png`}
-                            alt={`${villager.name}'s profile picture.`}
-                        />
-                    </div>
-                    <div className={styles.jobContainer}>
-                        <p>{job?.title}</p>
-                    </div>
-                    <div className={styles.genderContainer}>
-                        <p>{villager.gender}</p>
-                    </div>
+                    <img
+                        className={styles.profilePicture}
+                        src={`/${villager.name}.png`}
+                        alt={`${villager.name}'s profile picture.`}
+                    />
                 </div>
             </HeaderContainer>
             <BodyContainer>
                 <div className={isDarkMode ? styles.pageLinks : `${styles.pageLinks} ${styles.light}`}>
-                    <button onClick={() => setPage(0)}>Trade List</button>
-                    <button onClick={() => setPage(1)}>Messenger</button>
+                    <button onClick={() => setTab(0)}>Trade List</button>
+                    <button onClick={() => setTab(1)}>Messenger</button>
                 </div>
-                {page === 0
+                {tab === 0
                     ? (
                         <TradeList trades={trades} />
                     ) : (
