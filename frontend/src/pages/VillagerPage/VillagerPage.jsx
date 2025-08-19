@@ -10,7 +10,7 @@ import HeaderContainer from "../../components/containers/HeaderContainer/HeaderC
 import BodyContainer from "../../components/containers/BodyContainer/BodyContainer";
 import FooterContainer from "../../components/containers/FooterContainer/FooterContainer";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import Messager from "../../components/messages/Messager/Messager";
+import Messenger from "../../components/messages/Messenger/Messenger";
 import { VillagerContext } from "../../contexts/VillagerContext";
 
 export default function VillagerPage() {
@@ -75,7 +75,7 @@ export default function VillagerPage() {
                         ? (
                             <TradeList />
                         ) : (
-                            <Messager />
+                            <Messenger />
                         )}
                 </BodyContainer>
                 <FooterContainer>

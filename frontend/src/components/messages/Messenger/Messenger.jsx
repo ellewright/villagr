@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
-import styles from "./Messager.module.css";
+import styles from "./Messenger.module.css";
 import Message from "../Message/Message";
 import { VillagerContext } from "../../../contexts/VillagerContext";
 
