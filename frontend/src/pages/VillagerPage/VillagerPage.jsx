@@ -73,7 +73,7 @@ export default function VillagerPage() {
                 </div>
             </HeaderContainer>
             <BodyContainer>
-                <div className={styles.pageLinks}>
+                <div className={isDarkMode ? styles.pageLinks : `${styles.pageLinks} ${styles.light}`}>
                     <button onClick={() => setPage(0)}>Trade List</button>
                     <button onClick={() => setPage(1)}>Messenger</button>
                 </div>

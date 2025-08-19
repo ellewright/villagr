@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 import styles from "./Messager.module.css";
 import Message from "../Message/Message";
 
 export default function Messager({ villager, job, trades }) {
     const [newMessage, setNewMessage] = useState("");
     const [messages, setMessages] = useState([]);
+
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         if (villager.name !== undefined) {
@@ -69,7 +72,7 @@ export default function Messager({ villager, job, trades }) {
                 onSubmit={handleSubmit}
             >
                 <input
-                    className={styles.newChatInput}
+                    className={isDarkMode ? styles.newChatInput : `${styles.newChatInput} ${styles.light}`}
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
                 />

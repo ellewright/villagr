@@ -50,6 +50,20 @@
     background-color: var(--dark-background-dark);
 }
 
+.pageLinks.light>button {
+    background-color: var(--light-background);
+    color: var(--light-text);
+    border: 1px solid var(--light-border);
+}
+
+.pageLinks.light>button:hover {
+    background-color: var(--light-background-light);
+}
+
+.pageLinks.light>button:active {
+    background-color: var(--light-background-dark);
+}
+
 .footerLinks {
     width: 100%;
     display: flex;
